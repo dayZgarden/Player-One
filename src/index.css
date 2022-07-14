@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+      @apply bg-gradient-to-r from-gray-800 via-slate-800 to-gray-800; @apply text-white
+  }
+}
