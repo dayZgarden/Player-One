@@ -12,16 +12,31 @@ const GameInfo = (props) => {
   const [games, setGames] = useState([])
   const [generating, setGenerating] = useState(true)
   const [list, setList] = useState([])
+  const [x, setX] = useState(0)
 
   let {id} = useParams();
+  const [userId, setuserID] = useState(id)
   let navigate = useNavigate();
 
    async function fetchGameInfo() {
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${id}?key=3bc6f0eacb5a456197a9a9862988f1c0`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=3bc6f0eacb5a456197a9a9862988f1c0`)
     setInfo(data)
     console.log(info)
     fetchGames();
   }
+
+  function changeId() {
+    let y = 1 + x;
+    setX(y)
+  }
+
+  useEffect(() => {
+    setuserID(id)
+  }, [x])
+
+  useEffect(() => {
+    fetchGameInfo()
+  },[userId])
 
    function randomNumber() {
     return Math.floor(Math.random() * 150) + 1
@@ -85,19 +100,19 @@ const GameInfo = (props) => {
               <p className="overflow-hidden m-5 text-[16px] text-center">{info?.description_raw}</p>
             </div>
         </div>
-        <div className="h-2/5">
+        <div  className="h-2/5">
             <h1 className="mt-5 md:mt-0 text-center font-bold tracking-widest text-[30px]">
                 Recommended Games
             </h1>
             {
               generating? <Loading /> : (
-                <div className="flex flex-wrap justify-evenly cursor-pointer h-5/6">
+                <button onClick={changeId} className="flex flex-wrap justify-evenly cursor-pointer h-5/6">
                 {
                 games?.map((result)=>(
                   <Recommended key={result.id} result = {result} />
                 )).splice(0,4)
                 } 
-              </div>
+              </button>
               )
             }
 

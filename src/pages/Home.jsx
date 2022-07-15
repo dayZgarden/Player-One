@@ -10,20 +10,34 @@ import scrollbarHide from 'tailwind-scrollbar-hide'
 
 const Home = (props) => {
     const [game, setGame] = useState([])
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(0)
+    const [minus, setMinus] = useState(0)
+    const [plus, setPlus] = useState(0)
     const [generating, setGenerating] = useState(true)
 
     function nextPage() {
-      let x = page + 1
-      setPage(x)
-      getGames();
+      let y = plus + 1;
+      setPlus(y)
     }
 
     function previousPage() {
+      let y = minus - 1;
+      setMinus(y)
+    }
+
+    useEffect(() => {
       let x = page - 1
       setPage(x)
+    }, [minus])
+
+    useEffect(() => {
+      let x = page + 1
+      setPage(x)
+    }, [plus])
+
+    useEffect(() => {
       getGames()
-    }
+    },[page])
 
     async function getGames() {
       const {data} = await axios.get(`https://api.rawg.io/api/games?key=3bc6f0eacb5a456197a9a9862988f1c0&page=${page}`)
