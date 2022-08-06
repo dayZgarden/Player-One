@@ -1,4 +1,4 @@
-# dayZtrivia
+# dayZgamer
 
 <br />
 <div align="center">
@@ -6,12 +6,12 @@
     <img src="https://user-images.githubusercontent.com/106930540/183260383-431c2f09-183b-4eb4-98f0-ab459c18f733.png" alt="Logo" width="1600" height="900">
   </a>
 
-<h3 align="center">dayZtrivia</h3>
+<h3 align="center">dayZgamer</h3>
 
   <p align="center">
-    Fullstack trivia game with 32 available genres and 3 difficulties in a multiple choice format. Features include Firebase account creation and sign in/sign out,
-    fully functionaly leaderboard that displays rank-user-points, 10 second timer for each question, shows right answer when you guess, as well as a results page 
-    displaying all the answers and your choices, as well as your score. Points save to your account when you logout. 
+    Videogame database / catalog. Features a landing page with a browse game call to action. The user is able to search for any game through query, recommendation,
+    or genre sorting. The home page displays the rating and adds for each game and can be navigated with page numbers. Further game information is given when the 
+    user picks a game inluding acheivements, description, another image of the game, and genres.
     <br />
     <a href="https://github.com/dayZgarden/dayZgamer"><strong>Explore the docs »</strong></a>
     <br />
