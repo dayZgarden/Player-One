@@ -11,7 +11,7 @@
   <p align="center">
     Videogame database / catalog. Features a landing page with a browse game call to action. The user is able to search for any game through query, recommendation,
     or genre sorting. The home page displays the rating and adds for each game and can be navigated with page numbers. Further game information is given when the 
-    user picks a game inluding acheivements, description, another image of the game, and genres.
+    user picks a game inluding acheivements, description, another image, and genres.
     <br />
     <a href="https://github.com/dayZgarden/dayZgamer"><strong>Explore the docs »</strong></a>
     <br />
