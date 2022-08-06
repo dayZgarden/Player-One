@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a target="_blank" href="https://day-zgamer.vercel.app/">
-    <img src="https://user-images.githubusercontent.com/106930540/183260383-431c2f09-183b-4eb4-98f0-ab459c18f733.png" alt="Logo" width="1600" height="900">
+    <img src="https://user-images.githubusercontent.com/106930540/183260383-431c2f09-183b-4eb4-98f0-ab459c18f733.png" alt="Logo" width="1000" height="800">
   </a>
 
 <h3 align="center">dayZgamer</h3>
