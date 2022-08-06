@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a target="_blank" href="https://day-zgamer.vercel.app/">
-    <img src="https://user-images.githubusercontent.com/106930540/183260317-765bc7c0-82c1-4f4b-8eeb-cb6c12130c86.png" alt="Logo" width="940" height="720">
+    <img src="https://user-images.githubusercontent.com/106930540/183260317-765bc7c0-82c1-4f4b-8eeb-cb6c12130c86.png" alt="Logo" width="1920" height="1080">
   </a>
 
 <h3 align="center">dayZtrivia</h3>
