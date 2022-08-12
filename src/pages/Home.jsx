@@ -1,78 +1,68 @@
 import Nav from '../components/nav'
 import Sidebar from '../components/Sidebar'
 import Feed from '../components/Feed'
-import axios from 'axios'
 import { useEffect, useState, useRef } from 'react'
 import Footer from '../components/Footer'
 import { ArrowLeftIcon, ArrowRightIcon,  } from '@heroicons/react/outline'
 import Loading from '../components/loading'
-import scrollbarHide from 'tailwind-scrollbar-hide'
+import getGames from '../utils/getGames'
+import getFreeGames from '../utils/getFreeGames'
+import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
 
 const Home = (props) => {
     const [game, setGame] = useState([])
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(1)
     const [minus, setMinus] = useState(0)
     const [plus, setPlus] = useState(0)
     const [generating, setGenerating] = useState(true)
-
-    function nextPage() {
-      let y = plus + 1;
-      setPlus(y)
-    }
-
-    function previousPage() {
-      let y = minus - 1;
-      setMinus(y)
-    }
+    const [shorts, setShorts] = useState([])
 
     useEffect(() => {
-      let x = page - 1
-      setPage(x)
-    }, [minus])
+      getGames({page}).then(
+        data => {
+          console.log(data)
+          setGame(data)
+          setGenerating(false)
+        }
+      )
+    },[])
 
     useEffect(() => {
-      let x = page + 1
-      setPage(x)
-    }, [plus])
-
-    useEffect(() => {
-      getGames()
+      getGames({page}).then(
+        data => {
+          console.log(data)
+          setGame(data)
+          setGenerating(false)
+        }
+      )
     },[page])
 
-    async function getGames() {
-      const {data} = await axios.get(`https://api.rawg.io/api/games?key=3bc6f0eacb5a456197a9a9862988f1c0&page=${page}`)
-  
-      console.log(data.results)
-      setGame(data.results)
-      setGenerating(false)
-    }
-  
-    useEffect(() => {
-      getGames()
-    }, [])
-
-    console.log(game)
   
     return (
-      <div className='overflow-x-scroll scrollbar-hide'>
+      <div className=' overflow-x-scroll scrollbar-hide'>
         <Nav />
   
-        <div className="flex">
-          <Sidebar />
+        <div className=" grid grid-cols-11 gap-x-30">
+          <div className='col-span-2'>
+            <Sidebar />
+          </div>
           
           {generating? 
           <Loading />
               :  
-            <Feed game={game} />
+            <div className='col-start-3 col-end-11'>
+              <Feed game={game} />
+            </div>
           }
 
         </div>
-        <div className='flex justify-center p-2 '>
-          {page > 1 && <button onClick={previousPage} className='active:scale-90 hover:scale-105 hover:animate-pulse transition-all duration-200'>
-            <ArrowLeftIcon className='p-1 w-16 h-16 mr-4 cursor-pointer rounded-[9999px] border-2'/>
+        <div className='flex justify-center p-2 space-x-4'>
+          {page > 1 && <button onClick={() => setPage(page - 1)} className='transition-all duration-500 text-[30px] bg-white hover:scale-105 active:scale-100 px-8 py-2 text-black border-4 border-black shadow-cool2  bg-opacity-70 cursor-pointer hover:bg-opacity-100'>
+            <AiOutlineVerticalRight className='font-black'/>
           </button>}
-          <button onClick={nextPage} className='active:scale-90 hover:scale-105 hover:animate-pulse transition-all duration-200'>
-            <ArrowRightIcon className='p-1 w-16 h-16 ml-4 cursor-pointer rounded-[9999px] border-2'/>
+          <button onClick={() => setPage(page + 1)} className='bg-white hover:scale-105 active:scale-100 px-8 py-2 text-black border-4 border-black shadow-cool2  bg-opacity-70 cursor-pointer hover:bg-opacity-100
+           transition-all duration-500 text-[30px]'>
+            <AiOutlineVerticalLeft className='font-extrabold'/>
           </button>
         </div>
         <h1 className='mt-2 tracking-widest font-bold text-[16px] flex justify-center'>Page Number: {page} </h1>

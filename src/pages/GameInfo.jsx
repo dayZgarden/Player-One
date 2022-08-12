@@ -1,11 +1,19 @@
 import React, {useState, useEffect} from "react";
-import GameDisplay from "../components/GameDisplay";
 import Recommended from "../components/Recommended";
 import { Navigate, useParams } from "react-router-dom";
 import axios from 'axios'
-import { GiftIcon, ArrowLeftIcon } from "@heroicons/react/solid";
 import { useNavigate, Link } from "react-router-dom";
 import Loading from "../components/recLoading";
+import getGames from "../utils/getGames";
+import GameForGenre from "../components/GamesForGenre";
+import { PlusIcon } from "@heroicons/react/outline";
+import Nav from "../components/nav";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import Carousel from "react-multi-carousel";
+import { Markup } from "interweave";
+import convertDate from "../utils/convertDate";
+import changePlatformToImage from "../utils/changePlatformToImage";
 
 const GameInfo = (props) => {
   const [info, setInfo] = useState();
@@ -13,22 +21,29 @@ const GameInfo = (props) => {
   const [generating, setGenerating] = useState(true)
   const [list, setList] = useState([])
   const [x, setX] = useState(0)
+  const [pictures, setPictures] = useState([])
+  const [trailer, setTrailer] = useState('')
+  const [preview, setPreview] = useState('')
+  const [para, setPara] = useState('')
 
   let {id} = useParams();
   const [userId, setuserID] = useState(id)
   let navigate = useNavigate();
+  let a = [];
 
    async function fetchGameInfo() {
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=3bc6f0eacb5a456197a9a9862988f1c0`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=93c589388c5f4142a0afda5bbf82bd99`)
     setInfo(data)
     console.log(info)
-    fetchGames();
+    let page = randomNumber()
+    getGames( {page} ).then((data) => {
+      setGames(data)
+      setGenerating(false)
+    })
   }
 
-  function changeId() {
-    let y = 1 + x;
-    setX(y)
-  }
+  const [currentIndex, setCurrentIndex] = useState(0);
+
 
   useEffect(() => {
     setuserID(id)
@@ -42,82 +57,138 @@ const GameInfo = (props) => {
     return Math.floor(Math.random() * 150) + 1
   }
 
-  async function fetchGames() {
-    let x = randomNumber()
-    const {data} = await axios.get(`https://api.rawg.io/api/games?key=3bc6f0eacb5a456197a9a9862988f1c0&page=${x}`)
-    const url = data.next
-    console.log(data.results)
-    setGames(data.results)
-    setGenerating(false)
+
+  async function getPictures() {
+    const query = info?.slug
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${query}/screenshots?key=93c589388c5f4142a0afda5bbf82bd99`)
+    a = data?.results?.map((picture) => {
+      return picture?.image
+    })
+    console.log(a);
+    setPictures(a)
+    //https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=10&page=1&key=93c589388c5f4142a0afda5bbf82bd99 works
+    //https://rawg.io/api/collections/must-play/feed?page=1&page_size=10&ordering=-added&key=93c589388c5f4142a0afda5bbf82bd99  works
   }
 
-  console.log(games)
-  function handleClick(){
-    navigate('/')
-  }
+  // async function getAPI() {
+  //   // const {data} = await axios.get(`https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=100&page=1&key=93c589388c5f4142a0afda5bbf82bd99`) WORKS
+  //   const {data} = await axios.get(``)
+  //   console.log(data)
+  // }
 
-  function handleList() {
-    setList(info)
-  }
+  useEffect(() => {
+    getPictures();
+    // getAPI();
+    console.log(info)
+    let tempParagraph = info?.description?.split('</p>')
+    if(tempParagraph) {
+      setPara(tempParagraph[0] + tempParagraph[1])
+    }
+  }, [info])
 
   useEffect(() => {
     fetchGameInfo({id})
   }, [])
 
-  // console.log(props.name)
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
 
   return (
-    <div className="h-screen flex-col flex md:flex-row">
-      <div className="flex justify-center items-center h-screen w-full md:w-2/5 border-r-2 border-cyan-600 relative">
-        <button onClick={handleClick} className='group'>
-          <ArrowLeftIcon className="w-12 hover:scale-110 transition-all duration-350 cursor-pointer h-12 absolute top-3 left-3"/> 
-          <p className="tracking-widest top-6 text-[24px] hidden group-hover:inline absolute left-20 font-bold">Back to Home</p>
-        </button>
-        <img
-          src={info?.background_image_additional}
-          className="mt-[100px] md:mt-0 h-5/6 w-5/6 md:w-full object-cover mx-auto p-4 border-t-2 border-b-2 
-          border-t-cyan-600 border-b-indigo-600"
-        />
-        <button onClick={handleList} className="absolute bottom-6 text-[24px] font-bold text-center px-2 border-r-2 border-l-2 rounded-lg hover:animate-pulse 
-        hover:scale-105 cursor-pointer tracking-widest hidden md:inline"> Add to Wishlist </button>
+    <div className="h-full grid grid-cols-12">
+      <div className="col-start-2 col-end-12">
+        <Nav />
       </div>
-      <div className="w-full md:w-3/5 h-screen flex flex-col">
-        <div className="h-2/3 flex justify-evenly flex-col border-b-2 border-indigo-600 relative">
-            <div className="mt-8 md:mt-0">
-              <h1 className="text-[48px] text-center mt-1 w-1/2 mx-auto p-1 border-r-2  border-cyan-600 rounded-lg font-bold mb-4 tracking-widest">{info?.name}</h1>
-              <div className="w-2/3 text-center mt-4 mx-auto p-1 rounded-lg border-l-2 border-indigo-600">
-
-              <p>Released: {info?.released} </p>
-              <p className="tracking-widest text-[32px] font-bold"> </p>
-              <p className="text-[30px] tracking-wide ">{info?.achievements_count} Achievements</p>
-                | {
-                  info?.genres.map(g=> `${g.name} | `)
-                } 
-
-              </div>
+      <div className="col-start-1 col-end-3">
+        <Sidebar />
+      </div>
+      <div className="col-start-[4] col-end-10 flex flex-col scroll-smooth">
+        <div className="col-span-2">
+          <h1 className="text-[64px] font-bold text-black border-4 border-black shadow-cool2 bg-white p-3">{info?.name}</h1>
+          <div>
+            <img src={info?.background_image_additional} alt="" />
+          </div>
+          <Markup className="" content={para || ''} />
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <h2 className="underline underline-offset-2">Release Date </h2>
+              <h2>{convertDate(info?.released)}</h2>
             </div>
-            <div className="overflow-hidden mb-5 md:mb-0">
-              <p className="overflow-hidden m-5 text-[16px] text-center">{info?.description_raw}</p>
+            <div className="flex flex-col">
+              <h2 className="underline underline-offset-2">Platforms </h2>
+              <h2>{info?.parent_platforms?.map((platform) => (
+                changePlatformToImage(platform?.platform?.slug))
+                )}
+                </h2>
             </div>
-        </div>
-        <div  className="h-2/5">
-            <h1 className="mt-5 md:mt-0 text-center font-bold tracking-widest text-[30px]">
-                Recommended Games
-            </h1>
-            {
-              generating? <Loading /> : (
-                <button onClick={changeId} className="flex flex-wrap justify-evenly cursor-pointer h-5/6">
-                {
-                games?.map((result)=>(
-                  <Recommended key={result.id} result = {result} />
-                )).splice(0,4)
-                } 
-              </button>
-              )
-            }
-
+          </div>
+          <div className="flex justify-between">
+            <div className="flex flex-col ">
+              <h2 className="underline underline-offset-2 ">Genres: </h2>
+              <h2 className="space-x-1 flex">
+                  {info?.genres.map((genre) => (
+                    <p> 
+                       {genre.name}
+                    </p>
+              ))}</h2>
+            </div>
+            <div className="flex flex-col text-left">
+              <h2 className="underline underline-offset-2 ">ESRB Rating </h2>
+              <h2>{info?.esrb_rating.name || "Not Rated"}</h2>
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <h2 className="underline underline-offset-2">Website</h2>
+              <a className="" href={info?.website}>{info?.website}</a>
+            </div>
+            <div className="flex flex-col">
+              <h2 className="underline underline-offset-2">About the Developers</h2>
+              <h2>{info?.developers?.map((developer) => (
+                <div>
+                  <div className="flex space-x-2 items-center">
+                    <img className="w-12 h-12 borderborder-black rounded-full object-cover" src={developer?.image_background} alt="" />
+                    <p>{developer?.name}</p>
+                  </div>
+                  <p>Games count: {developer?.games_count}</p>
+                </div>
+              ))}</h2>
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <h2 className="underline underline-offset-2">Stores: </h2>
+              <h2 className="flex flex-col">{info?.stores?.map((res) => (
+                <a href={res?.store?.domain}>{res?.store?.name}</a>
+              ))}</h2>
+            </div>
+            <div className="flex flex-col">
+              <h2 className="underline underline-offset-2">Reviews </h2>
+              <h2>{info?.released}</h2>
+            </div>
+          </div>
         </div>
       </div>
+      <footer className="col-span-12">
+         <Footer />
+      </footer>
     </div>
   );
 };

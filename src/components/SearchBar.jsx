@@ -12,10 +12,16 @@ const SearchBar = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         let slug = search.split(' ').join('-').toLowerCase()
-        const {data} = await axios.get(`https://api.rawg.io/api/games?key=3bc6f0eacb5a456197a9a9862988f1c0&search=${slug}`)
+        const {data} = await axios.get(`https://api.rawg.io/api/games?key=93c589388c5f4142a0afda5bbf82bd99&search=${slug}`)
         setGame(data?.results)
-        let id = (data?.results[0].id)
-        navigate(`/GameInfo/${id}`)
+        console.log(data?.results)
+        console.log(slug)
+        navigate(`/genre`, {
+            state: {
+                search: data?.results,
+                word: slug
+            }
+        })
     }
 
     function handleChange(e) {

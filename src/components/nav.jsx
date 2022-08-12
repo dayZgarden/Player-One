@@ -16,6 +16,7 @@ export default function nav() {
 
   const refresh =  () => {
     const refreshToast = toast.loading('Refreshing...')
+    
 
     toast.success('Feed Updated!', {
       id: refreshToast
@@ -31,11 +32,6 @@ export default function nav() {
     setBar(!bar)
   }
 
-
-  function toWishList() {
-    navigate('/Wishlist')
-  }
-
   return (
     <div className="p-6">
       <div
@@ -47,7 +43,9 @@ export default function nav() {
           <h1 className="font-bold text-4xl tracking-widest">dayZgamer</h1>
         </div>
         <div className="bg-slate-900  border-b-2 border-b-blue-900 rounded-md p-1 pt-4 border-l-2 border-l-cyan-900 flex flex-grow justify-evenly max-w-2xl">
-          <NavItem Icon={HomeIcon} title="Home" />
+          <button onClick={() => navigate('/')}>
+            <NavItem  Icon={HomeIcon} title="Home" />
+          </button>
           <button  onClick={refresh}>
             <NavItem Icon={RefreshIcon} title={'Refresh'}/>
           </button>
@@ -63,7 +61,7 @@ export default function nav() {
             bar && <SearchBar />
           }
            <NavItem Icon={UserIcon} title='Login'/>
-          <button onClick={toWishList}>
+          <button onClick={() => navigate('/wishlist')}>
               <NavItem Icon={StarIcon} title="Wishlist" />
           </button>
         </div>
