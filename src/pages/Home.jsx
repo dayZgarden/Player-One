@@ -9,7 +9,7 @@ import getGames from '../utils/getGames'
 import getFreeGames from '../utils/getFreeGames'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
 
-const Home = (props) => {
+const Home = ({wishlist, addToWishlist}) => {
     const [game, setGame] = useState([])
     const [page, setPage] = useState(1)
     const [minus, setMinus] = useState(0)
@@ -42,16 +42,16 @@ const Home = (props) => {
       <div className=' overflow-x-scroll scrollbar-hide'>
         <Nav />
   
-        <div className=" grid grid-cols-11 gap-x-30">
-          <div className='col-span-2'>
+        <div className="w-full flex">
+          <div className='w-[20%] hidden lg:inline'>
             <Sidebar />
           </div>
           
           {generating? 
           <Loading />
               :  
-            <div className='col-start-3 col-end-11'>
-              <Feed game={game} />
+            <div className='lg:w-[80%] w-[95%] mx-auto lg:m-0'>
+              <Feed game={game} wishlist={wishlist} addToWishlist={addToWishlist}/>
             </div>
           }
 

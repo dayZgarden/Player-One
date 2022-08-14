@@ -11,6 +11,7 @@ import Nav from "../components/nav";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Carousel from "react-multi-carousel";
+import 'react-multi-carousel/lib/styles.css';
 import { Markup } from "interweave";
 import convertDate from "../utils/convertDate";
 import changePlatformToImage from "../utils/changePlatformToImage";
@@ -32,7 +33,7 @@ const GameInfo = (props) => {
   let a = [];
 
    async function fetchGameInfo() {
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=93c589388c5f4142a0afda5bbf82bd99`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=8824f695c027467587b877f1225217f2`)
     setInfo(data)
     console.log(info)
     let page = randomNumber()
@@ -43,7 +44,6 @@ const GameInfo = (props) => {
   }
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
 
   useEffect(() => {
     setuserID(id)
@@ -60,13 +60,13 @@ const GameInfo = (props) => {
 
   async function getPictures() {
     const query = info?.slug
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${query}/screenshots?key=93c589388c5f4142a0afda5bbf82bd99`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${query}/screenshots?key=8824f695c027467587b877f1225217f2`)
     a = data?.results?.map((picture) => {
       return picture?.image
     })
     console.log(a);
     setPictures(a)
-    //https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=10&page=1&key=93c589388c5f4142a0afda5bbf82bd99 works
+     //https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=10&page=1&key=93c589388c5f4142a0afda5bbf82bd99 works
     //https://rawg.io/api/collections/must-play/feed?page=1&page_size=10&ordering=-added&key=93c589388c5f4142a0afda5bbf82bd99  works
   }
 
@@ -90,19 +90,18 @@ const GameInfo = (props) => {
     fetchGameInfo({id})
   }, [])
 
-  const responsive = {
+ const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 1
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 1
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 1
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -122,9 +121,42 @@ const GameInfo = (props) => {
       <div className="col-start-[4] col-end-10 flex flex-col scroll-smooth">
         <div className="col-span-2">
           <h1 className="text-[64px] font-bold text-black border-4 border-black shadow-cool2 bg-white p-3">{info?.name}</h1>
-          <div>
-            <img src={info?.background_image_additional} alt="" />
-          </div>
+            {/* <img src={info?.background_image_additional} alt="" />
+            {pictures.map((picture) => {
+              return <img src={picture} alt="" />
+            })} */}
+            <Carousel
+              showDots={true}
+              responsive={responsive}
+              infinite={true}
+              autoPlaySpeed={1000}
+              className="w-[500px] h-[500px]"
+              >
+             <div className="w-[80%] h-[80%]">
+                <img src={info?.background_image} alt="" />
+             </div>
+             <div className="w-[80%] h-[80%]">
+                <img src={info?.background_image_additional} alt="" />
+             </div>
+             {pictures[0] ? <div>
+              <img src={pictures[0]} alt="" />
+             </div> : null}
+             {pictures[1] ? <div>
+              <img src={pictures[1]} alt="" />
+             </div> : null}
+             {pictures[2] ? <div>
+              <img src={pictures[2]} alt="" />
+             </div> : null}
+             {pictures[3] ? <div>
+              <img src={pictures[3]} alt="" />
+             </div> : null}
+             {pictures[4] ? <div>
+              <img src={pictures[4]} alt="" />
+             </div> : null}
+             {pictures[5] ? <div>
+              <img src={pictures[5]} alt="" />
+             </div> : null}
+            </Carousel>
           <Markup className="" content={para || ''} />
           <div className="flex justify-between">
             <div className="flex flex-col">
@@ -151,7 +183,7 @@ const GameInfo = (props) => {
             </div>
             <div className="flex flex-col text-left">
               <h2 className="underline underline-offset-2 ">ESRB Rating </h2>
-              <h2>{info?.esrb_rating.name || "Not Rated"}</h2>
+              <h2>{info?.esrb_rating?.name || "Not Rated"}</h2>
             </div>
           </div>
           <div className="flex justify-between">

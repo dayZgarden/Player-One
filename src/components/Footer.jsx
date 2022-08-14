@@ -12,8 +12,10 @@ export default function Footer() {
         <div className='border-b-2 border-white mb-8'>
         </div>
         <div className='flex flex-col items-center'>
-          <h1 className='text-[40px] font-bold tracking-widest mb-2'>dayZgamer</h1>
-          <img className='mb-2 object-contain p-2' src="https://day-z-tracker.vercel.app/assets/icons8-flat-60.png" alt="" />
+          <div className='flex'>
+            <img className="object-contain p-2 mb-2" src='https://day-ztracker.vercel.app/assets/icons8-flat-60.png'/>
+            <h1 className='text-[40px] font-bold tracking-widest mb-2'>dayZgamer</h1>
+          </div>
           <p className='text-[12px]'>Copyright &copy; 2022. All rights reserved.</p>
         </div>
       </div>
