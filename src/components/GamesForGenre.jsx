@@ -16,7 +16,6 @@ import {BiLoaderCircle} from "react-icons/bi";
 export default function GameForGenre({ result, addToWishlist, wishlist }) {
   const params = useParams();
   let navigate = useNavigate();
-  console.log(result);
 
   const [trailer, setTrailer] = useState("");
   const [preview, setPreview] = useState("");
@@ -25,9 +24,8 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
 
   async function getTrailers() {
     const { data } = await axios.get(
-      `https://api.rawg.io/api/games/${result?.id}/movies?key=8824f695c027467587b877f1225217f2`
+      `https://api.rawg.io/api/games/${result?.id}/movies?key=b856ad245b7a4d40affdcba24da8dc7b`
     );
-    console.log(data);
     setTrailer(data?.results[0]?.data?.max);
     setPreview(data?.results[0]?.preview);
   }
@@ -63,30 +61,31 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
         setInWishlist(true);
         setTimeout(() => {
           setStar(true);
-        }, 250)
+        }, 1000)
       }
     }
     );
+  
   }
   
 
   return (
     <div className="scrollbar-hide hover:z-[100] md:w-[50%] relative w-full lg:w-[33.333%] flex justify-center scroll-smooth">
       <div
-        className="group  hover:scale-[103%] transition-all  duration-[.65s] h-[60%]
+        className="group  hover:scale-[103%] transition-all  duration-[.65s] h-[55%]
           flex relative "
       >
         <div
-          className="bg-slate-400  cursor-pointer  duration-1000  
+          className="bg-[#757687]  cursor-pointer  duration-1000  
            border-black border-4 shadow-cool2 "
         >
           <span className="z-50">
             {(inWishlist && !star) && 
-            (<BiLoaderCircle className="animate-spin z-50 rounded-full p-1 text-green-400  bg-white  -top-4 -right-4 h-12 w-12  absolute hover:scale-[107%] transition-all duration-500" />)}
+            (<CheckIcon className="animate-ping z-50 rounded-full p-1 text-green-700 -top-6 -right-6 h-16 w-16  absolute hover:scale-[107%] transition-all duration-500" />)}
              {(inWishlist && star) && 
             (
             <div className="">
-              <StarIcon className=" z-50 rounded-full  text-blue-400  -top-8 -right-8 h-16 w-16 absolute cursor-default transition-all duration-500" /> 
+              <StarIcon className=" z-50 rounded-full  text-white  -top-8 -right-8 h-16 w-16 absolute cursor-default transition-all duration-500" /> 
             </div>
             )}
             {!inWishlist && <button onClick={() => addToWishlist(result)} className="">
@@ -102,7 +101,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
           >
             <button className="w-full z-[1] flex flex-col items-center h-full justify-evenly space-y-4 group">
               <h1
-                className="font-bold text-black bg-white border-black text-[24px] w-3/4 text-center break-words  py-1 px-2 shadow-cool2 border-4"
+                className="font-black text-black bg-[#fff] border-black border-4 shadow-cool2 rounded-[13%]  text-[24px] w-3/4 text-center break-words  p-2 "
               >
                 {result?.name}
               </h1>
@@ -136,7 +135,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
                 </figure>
 
               )}
-              <div className="flex relative z-[50] max-w-[360px] w-full  flex-col px-2 text-[12px] shadow-cool2 group-hover:border-b-0 group-hover:shadow-sm text-black font-extrabold border-4 bg-slate-400 border-black">
+              <div className="flex relative z-[50] max-w-[360px] w-[80%]  flex-col px-2 text-[12px] group-hover:border-b-0 group-hover:shadow-sm font-extrabold border-4 text-white bg-slate-800 border-black">
                 <div className="py-2  text-center tracking-wider w-full text-[18px] flex justify-center space-x-2">
                   <p>
                     {result?.added}
@@ -144,7 +143,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
                       <PlusIcon className="w-5  h-5 mb-1 inline rounded-full border bg-white border-black text-black" />
                     }
                   </p>
-                  <span className="border-r border-2 border-black"></span>
+                  <span className="border-r border-2 border-white"></span>
                   <p>
                     {result?.rating}
                     {
@@ -152,7 +151,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
                     }
                   </p>
                 </div>
-                <div className="opacity-0 group-hover:opacity-[101%] absolute translate-x-[-3%] -bottom-[93px] z-[-50] bg-slate-400 group-hover:border-t-0  border-black border-4 shadow-cool w-[102%] max-w-[360px]">
+                <div className="opacity-0 group-hover:opacity-[101%] absolute translate-x-[-4%] -bottom-[93px] z-[-50] text-white bg-slate-800 group-hover:border-t-0  border-black border-4 w-[103%] max-w-[360px]">
                   <div className="flex justify-between p-1 border-t-2 border-black transition-all duration-1000">
                     <p>Release Date: </p>
                     <p>{convertDate(result?.released)}</p>

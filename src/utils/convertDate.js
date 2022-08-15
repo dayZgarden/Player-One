@@ -1,7 +1,6 @@
 function convertDate(date) {
     if(date){
     let newDate = date?.replaceAll('-',' ').split(' ')
-    console.log(newDate)
     if(newDate[1] === '01'){newDate[1] = 'Jan'}if(newDate[1] === '02'){newDate[1] = 'Feb'}if(newDate[1] === '03'){newDate[1] = 'Mar'}if(newDate[1] === '04'){  newDate[1] = 'Apr'}if(newDate[1] === '05'){newDate[1] = 'May'}
     if(newDate[1] === '06'){
       newDate[1] = 'Jun'

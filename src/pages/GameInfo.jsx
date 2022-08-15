@@ -33,7 +33,7 @@ const GameInfo = (props) => {
   let a = [];
 
    async function fetchGameInfo() {
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=8824f695c027467587b877f1225217f2`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=b856ad245b7a4d40affdcba24da8dc7b`)
     setInfo(data)
     console.log(info)
     let page = randomNumber()
@@ -60,11 +60,10 @@ const GameInfo = (props) => {
 
   async function getPictures() {
     const query = info?.slug
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${query}/screenshots?key=8824f695c027467587b877f1225217f2`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${query}/screenshots?key=b856ad245b7a4d40affdcba24da8dc7b`)
     a = data?.results?.map((picture) => {
       return picture?.image
     })
-    console.log(a);
     setPictures(a)
      //https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=10&page=1&key=93c589388c5f4142a0afda5bbf82bd99 works
     //https://rawg.io/api/collections/must-play/feed?page=1&page_size=10&ordering=-added&key=93c589388c5f4142a0afda5bbf82bd99  works
@@ -79,7 +78,6 @@ const GameInfo = (props) => {
   useEffect(() => {
     getPictures();
     // getAPI();
-    console.log(info)
     let tempParagraph = info?.description?.split('</p>')
     if(tempParagraph) {
       setPara(tempParagraph[0] + tempParagraph[1])

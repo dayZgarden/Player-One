@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require('tailwindcss/plugin')
 
+
 const myClass = plugin(function ({ addUtilities }){
   addUtilities({
     '.my-rotate-y-180':{
@@ -18,13 +19,30 @@ const myClass = plugin(function ({ addUtilities }){
   })
 })
 
+
 module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    
     extend: {
+      fontFamily: {
+        DynaPuff: ['DynaPuff', 'cursive'],
+        Rubik: ['Rubik Mono One', 'sans-serif'],
+        Bowl: ['Rubik Mono One', 'sans-serif']
+      },
+      backgroundImage: {
+        'cars': 'url(./assets/racing.jpg)',
+        'bo1': 'url(./assets/bo1.jpg)',
+        'borderlands': 'url(./assets/borderlands.jpg)',
+        'borderlands2': 'url(./assets/borderlands2.jpg)',
+        'borderlands3': 'url(./assets/borderlands3.jpg)',
+        'borderlands4': 'url(./assets/borderlands4.webp)',
+        'greenvg': 'url(./assets/greenvg.jpg)',
+        'spacegame': 'url(./assets/spacegame.png)',
+      },
       boxShadow: {
         'cool': '5px 7px 0px 0px rgb(17 24 49)',
         'cool2': '5px 7px 0px 0px rgb(0 0 0)',
@@ -42,11 +60,15 @@ module.exports = {
       },
       animation: {
         fadeAnim: 'fadeAnim 1s ease-out',
+      },
+      variants: {
+        scrollbar: ['dark']
       }
     },
   },
   plugins: [
     require('tailwind-scrollbar-hide'),
+    require('tailwind-scrollbar'),
     myClass
   ],
 }

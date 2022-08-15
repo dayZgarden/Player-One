@@ -5,8 +5,8 @@ const SidebarItem = ({title}) => {
     return (
         <Link to = {{
             pathname: '/genre'
-        }} className=' hover:bg-indigo-900 cursor-pointer group flex flex-1 w-full opacity-90 rounded-lg overflow-hidden'>
-            <p className='p-4 pl-0 before:m-5 text-[32px] group-hover:scale-110 transistion duration-100 
+        }} className=' hover:bg-indigo-900 p-4 cursor-pointer group flex w-full opacity-90 rounded-lg '>
+            <p className='p-4 pl-0  text-white text-[32px] group-hover:scale-110 transistion duration-100 
             tracking-widest'>{title}</p>
         </Link>
     );

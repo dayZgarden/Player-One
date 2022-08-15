@@ -8,6 +8,7 @@ import Loading from '../components/loading'
 import getGames from '../utils/getGames'
 import getFreeGames from '../utils/getFreeGames'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
+import Chimp from '../components/Chimp'
 
 const Home = ({wishlist, addToWishlist}) => {
     const [game, setGame] = useState([])
@@ -39,13 +40,13 @@ const Home = ({wishlist, addToWishlist}) => {
 
   
     return (
-      <div className=' overflow-x-scroll scrollbar-hide'>
+      <div className='overflow-x-scroll scrollbar-hide'>
         <Nav />
   
-        <div className="w-full flex">
-          <div className='w-[20%] hidden lg:inline'>
+        <div className="w-full flex justify-between ">
+          <div className='w-[17%] hidden lg:inline'>
             <Sidebar />
-          </div>
+          </div> 
           
           {generating? 
           <Loading />
@@ -66,8 +67,13 @@ const Home = ({wishlist, addToWishlist}) => {
           </button>
         </div>
         <h1 className='mt-2 tracking-widest font-bold text-[16px] flex justify-center'>Page Number: {page} </h1>
-
+        <div className='relative'>
+          <div className='absolute w-[80%] -top-20 left-1/2 translate-x-[-50%]'>
+            <Chimp />
+          </div>
           <Footer />
+        </div>
+
       </div>
     );
 }
