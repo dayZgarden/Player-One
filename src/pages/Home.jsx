@@ -67,12 +67,7 @@ const Home = ({wishlist, addToWishlist}) => {
           </button>
         </div>
         <h1 className='mt-2 tracking-widest font-bold text-[16px] flex justify-center'>Page Number: {page} </h1>
-        <div className='relative'>
-          <div className='absolute w-[80%] -top-20 left-1/2 translate-x-[-50%]'>
-            <Chimp />
-          </div>
           <Footer />
-        </div>
 
       </div>
     );

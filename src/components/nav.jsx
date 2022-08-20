@@ -39,10 +39,10 @@ export default function nav() {
         items-center h-auto "
       >
         <div className="flex items-center">
-          <h1 className="font-bold text-4xl tracking-widest uppercase">PLAYER ONE</h1>
+          <h1 className="font-bold text-4xl uppercase fixed">PLAYER ONE</h1>
         </div>
         <div className=" rounded-md p-1 pt-4  flex flex-grow justify-evenly max-w-2xl">
-          <button onClick={() => navigate('/')}>
+          <button onClick={() => navigate('/games')}>
             <NavItem  Icon={HomeIcon} title="Home" />
           </button>
           <button  onClick={refresh}>

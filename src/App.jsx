@@ -48,12 +48,12 @@ function App() {
       <Toaster />
       <Router>
         <Routes>
-          <Route path='/'  element={<Home wishlist={wishlist} addToWishlist={addToWishlist}/>}/>
+          <Route path='/games'  element={<Home wishlist={wishlist} addToWishlist={addToWishlist}/>}/>
           {/* <Route path='/wishlist' element={<WishList wishlist={wishlist} setWishlist={setWishlist}/>}/> */}
           
           <Route path='GameInfo/:id' element={<GameInfo/> }/>
 
-          <Route path='/landing' element={<Landing /> }/>
+          <Route path='/' element={<Landing /> }/>
 
           <Route path='/Wishlist' element={<WishList wishlist={wishlist} addToWishlist={addToWishlist} handleRemoveGame={handleRemoveGame} /> }/>
 

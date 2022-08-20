@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SidebarItem = ({title}) => {
+const SidebarItem = ({title, url}) => {
     return (
         <Link to = {{
-            pathname: '/genre'
-        }} className=' hover:bg-indigo-900 p-4 cursor-pointer group flex w-full opacity-90 rounded-lg '>
-            <p className='p-4 pl-0  text-white text-[32px] group-hover:scale-110 transistion duration-100 
+            pathname: `${url}`
+        }} className=' cursor-pointer group flex w-full rounded-lg px-6 p-2'>
+            
+            <p className='pl-0 text-white text-[32px] group-hover:scale-110 transistion duration-100 
             tracking-widest'>{title}</p>
         </Link>
     );

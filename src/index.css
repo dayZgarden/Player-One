@@ -8,6 +8,15 @@
 
 @layer base {
   body {
-      @apply bg-[#2B2E4A]; @apply text-white
+      @apply text-white; @apply bg-[#1c1c28];
+  }
+}
+
+@layer utilities {
+  .animation-delay-2s {
+    animation-delay: 2s;
+  }
+  .animation-delay-4s {
+    animation-delay: 4s;
   }
 }

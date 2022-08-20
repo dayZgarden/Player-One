@@ -42,11 +42,13 @@ module.exports = {
         'borderlands4': 'url(./assets/borderlands4.webp)',
         'greenvg': 'url(./assets/greenvg.jpg)',
         'spacegame': 'url(./assets/spacegame.png)',
+        'space': 'url(./assets/space.jpg)',
+        'space2': 'url(./assets/space2.jpg)',
       },
       boxShadow: {
         'cool': '5px 7px 0px 0px rgb(17 24 49)',
         'cool2': '5px 7px 0px 0px rgb(0 0 0)',
-        'cool3': '5px 7px 0px 0px rgb(255 255 255)',
+        'cool3': '5px 7px 0px 0px rgb(195 195 195)',
       },
       keyframes:{
         fadeAnim: {
@@ -57,9 +59,39 @@ module.exports = {
             opacity: '100%'
           }
         },
+        blob: {
+          '0%' :{
+            transform: ' scale(1)',
+          },
+          '33%' : {
+            transform: 'translate(30px, -50px) scale(1.1)',
+          },
+          '66%' : {
+            transform: 'translate(-20px, 20px) scale(0.9)',
+          },
+          '100%' : {
+            transform: ' scale(1)',
+          },
+        },
+        zipper: {
+          '0%' : {
+            border : '2px solid #61ffda',
+          },
+          '33%' : {
+            border: '2px solid #7b61ff'
+          },
+          '66%' : { 
+            border: '2px solid #fc61ff' 
+          },
+          '100%' : {
+            border: '2px solid #7b61ff'
+          },
+        }
       },
       animation: {
         fadeAnim: 'fadeAnim 1s ease-out',
+        blob: 'blob 7s infinite',
+        zipper: 'zipper 2.5s infinite linear',
       },
       variants: {
         scrollbar: ['dark']
