@@ -47,7 +47,7 @@ module.exports = {
       },
       boxShadow: {
         'cool': '5px 7px 0px 0px rgb(17 24 49)',
-        'cool2': '5px 7px 0px 0px rgb(0 0 0)',
+        'cool2': '2px 3px 0px 0px rgb(0 0 0)',
         'cool3': '5px 7px 0px 0px rgb(195 195 195)',
       },
       keyframes:{

@@ -7,8 +7,7 @@ const SidebarItem = ({title, url}) => {
             pathname: `${url}`
         }} className=' cursor-pointer group flex w-full rounded-lg px-6 p-2'>
             
-            <p className='pl-0 text-white text-[32px] group-hover:scale-110 transistion duration-100 
-            tracking-widest'>{title}</p>
+            <p className='pl-0 text-white text-[32px] group-hover:scale-110 transistion duration-100  font-[600]'>{title}</p>
         </Link>
     );
 }

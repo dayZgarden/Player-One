@@ -30,7 +30,7 @@ function App() {
       toast.success('Added to Wishlist', {
         id: refreshToast
       })
-    }, 250)
+    }, 1000)
   }
 
   const handleRemoveGame = (game) => {

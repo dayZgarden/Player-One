@@ -12,7 +12,7 @@ const SearchBar = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         let slug = search.split(' ').join('-').toLowerCase()
-        const {data} = await axios.get(`https://api.rawg.io/api/games?key=b856ad245b7a4d40affdcba24da8dc7b&search=${slug}`)
+        const {data} = await axios.get(`https://api.rawg.io/api/games?key=950ecb52769e4a53b647742fff1a1226&search=${slug}`)
         setGame(data?.results)
         console.log(data?.results)
         console.log(slug)

@@ -44,7 +44,7 @@ const Home = ({wishlist, addToWishlist}) => {
         <Nav />
   
         <div className="w-full flex justify-between ">
-          <div className='w-[17%] hidden lg:inline'>
+          <div className='w-[17%]'>
             <Sidebar />
           </div> 
           

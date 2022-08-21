@@ -2,13 +2,13 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import GameForGenre from "../components/GamesForGenre";
-import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { useNavigate, useLocation } from "react-router-dom";
 import Nav from "../components/nav";
 import getGames from "../utils/getGames";
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
-import { StarIcon, PlusIcon, CheckIcon} from "@heroicons/react/solid";
 import Footer from "../components/Footer";
+import Loading from '../assets/Loading.json'
+import lottie from 'lottie-web'
 
 
 export default function Genre() {
@@ -26,6 +26,18 @@ export default function Genre() {
   console.log(query)
 
   useEffect(() => {
+    lottie.loadAnimation({
+      container: loadingRef?.current, // the dom element that will contain the animation
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
+      animationData: Loading,
+    }) 
+  },)
+
+  useEffect(() => {
+    
     if(search?.length > 0) {
       setGames(search)
       setLoading(false)
@@ -59,16 +71,19 @@ export default function Genre() {
     ref.current.scrollLeft += scrollOffset;
   };
 
+  const loadingRef = useRef(null);
+
 
   return (
-    <div className=" scrollbar-hide h-full flex flex-col bg-gradient-to-b from-neutral-900 via-sky-900">
+    <div className="w-full scrollbar-hide h-full flex flex-col">
         <Nav/>
       {search?.length > 1 && <div className="flex justify-center sticky text-[24px] underline underline-offset-2">
         Search results for "<span className="first-letter:uppercase">{query?.replaceAll('-',' ')}</span>"
       </div>}
-      <div ref={ref} className="overflow-x-scroll scrollbar-hide overflow-y-visible  w-full mt-4 h-[90vh] flex relative flex-col md:flex-row scroll-smooth">
-        {loading? 'loading' : games?.map((result) => (
-          <div>
+      <div ref={ref} className="overflow-x-scroll scrollbar-hide  w-full mt-4 h-[90vh] flex relative flex-col md:flex-row scroll-smooth">
+        {loading && <div ref={loadingRef} className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-70%] w-[80%] h-[80%] flex justify-center items-center"></div>}
+        {!loading && games?.map((result) => (
+          <div className="min-w-[400px] max-h-[600px] hover:scale-[103%] transition-all  duration-[.65s] bg-[#20202e] odd:border-b-[#fc61ff] border-4 border-[#20202e] even:border-b-[#61ffda] m-5">
               <GameForGenre result={result} key={result.id} />
           </div>
         ))}
@@ -79,6 +94,7 @@ export default function Genre() {
           <button onClick={() => scroll(1500)} className="bg-white px-12 py-2 mr-8 text-black border-4 border-black shadow-cool2  bg-opacity-70 cursor-pointer hover:bg-opacity-100
            transition text-[30px]"><AiOutlineVerticalLeft/></button>
         </div>
+        <Footer />
     </div>
   );
 }

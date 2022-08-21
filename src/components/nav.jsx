@@ -39,18 +39,18 @@ export default function nav() {
         items-center h-auto "
       >
         <div className="flex items-center">
-          <h1 className="font-bold text-4xl uppercase fixed">PLAYER ONE</h1>
+          <h1 className="font-bold text-4xl uppercase fixed ">PLAYER ONE</h1>
         </div>
         <div className=" rounded-md p-1 pt-4  flex flex-grow justify-evenly max-w-2xl">
-          <button onClick={() => navigate('/games')}>
+          <button className="border-b-2 border-[#fc61ff]" onClick={() => navigate('/games')}>
             <NavItem  Icon={HomeIcon} title="Home" />
           </button>
-          <button  onClick={refresh}>
+          <button  className="border-b-2 border-[#7b61ff]" onClick={refresh}>
             <NavItem Icon={RefreshIcon} title={'Refresh'}/>
           </button>
-          <button onClick={loadBar} className="">
+          <button className="border-b-2 border-[#61ffda]" onClick={loadBar}>
             {
-              !bar && <NavItem Icon={SearchIcon} title="Search" />
+              !bar && <div> <NavItem Icon={SearchIcon} title="Search" /> </div>
             }
             {
               bar && <NavItem Icon={XIcon} title="Close" />
@@ -59,8 +59,10 @@ export default function nav() {
           {
             bar && <SearchBar />
           }
+          <div className="border-b-2 border-[#fc61ff]">
            <NavItem Icon={UserIcon} title='Login'/>
-          <button onClick={() => navigate('/wishlist')}>
+          </div>
+          <button className="border-b-2 border-[#7b61ff]" onClick={() => navigate('/wishlist')}>
               <NavItem Icon={StarIcon} title="Wishlist" />
           </button>
         </div>

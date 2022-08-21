@@ -112,7 +112,7 @@ export default function Sidebar() {
 
   return (
     <div className='hidden m-5 top-0 bottom-0 lg:left-0 
-    text-center flex-col flex-1 fixed text-white lg:flex translate-y-[20%] overflow-y-scroll scrollbar-hide'>
+    text-center  flex-col flex-1 fixed text-white lg:flex max-h-[80vh] h-full translate-y-[20%] overflow-y-scroll scrollbar-hide'>
       {siderbarItems.map(item => ( <SidebarItem key={item.title} {...item}/> ))}
     </div>
   )

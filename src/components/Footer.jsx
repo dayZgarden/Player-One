@@ -3,7 +3,7 @@ import { FaArrowRight, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <div className=' text-white mt-8 py-20  h-full relative'>
+    <div className=' text-white z-[50] mt-8 py-20  h-full relative'>
       <div className="h-full flex flex-col">
         <div className='flex justify-between items-center border-b-2 border-[#262633] px-20 pb-8'>
           <h1 className='font-bold text-[32px]  uppercase'>Player one</h1>

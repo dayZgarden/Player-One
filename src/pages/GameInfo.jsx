@@ -3,7 +3,6 @@ import Recommended from "../components/Recommended";
 import { Navigate, useParams } from "react-router-dom";
 import axios from 'axios'
 import { useNavigate, Link } from "react-router-dom";
-import Loading from "../components/recLoading";
 import getGames from "../utils/getGames";
 import GameForGenre from "../components/GamesForGenre";
 import { PlusIcon } from "@heroicons/react/outline";
@@ -33,7 +32,7 @@ const GameInfo = (props) => {
   let a = [];
 
    async function fetchGameInfo() {
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=b856ad245b7a4d40affdcba24da8dc7b`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${userId}?key=950ecb52769e4a53b647742fff1a1226`)
     setInfo(data)
     console.log(info)
     let page = randomNumber()
@@ -60,17 +59,17 @@ const GameInfo = (props) => {
 
   async function getPictures() {
     const query = info?.slug
-    const {data} = await axios.get(`https://api.rawg.io/api/games/${query}/screenshots?key=b856ad245b7a4d40affdcba24da8dc7b`)
+    const {data} = await axios.get(`https://api.rawg.io/api/games/${query}/screenshots?key=950ecb52769e4a53b647742fff1a1226`)
     a = data?.results?.map((picture) => {
       return picture?.image
     })
     setPictures(a)
-     //https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=10&page=1&key=93c589388c5f4142a0afda5bbf82bd99 works
-    //https://rawg.io/api/collections/must-play/feed?page=1&page_size=10&ordering=-added&key=93c589388c5f4142a0afda5bbf82bd99  works
+     //https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=10&page=1&key=950ecb52769e4a53b647742fff1a1226 works
+    //https://rawg.io/api/collections/must-play/feed?page=1&page_size=10&ordering=-added&key=950ecb52769e4a53b647742fff1a1226  works
   }
 
   // async function getAPI() {
-  //   // const {data} = await axios.get(`https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=100&page=1&key=93c589388c5f4142a0afda5bbf82bd99`) WORKS
+  //   // const {data} = await axios.get(`https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added&page_size=100&page=1&key=950ecb52769e4a53b647742fff1a1226`) WORKS
   //   const {data} = await axios.get(``)
   //   console.log(data)
   // }
