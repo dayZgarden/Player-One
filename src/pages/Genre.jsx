@@ -80,18 +80,18 @@ export default function Genre() {
       {search?.length > 1 && <div className="flex justify-center sticky text-[24px] underline underline-offset-2">
         Search results for "<span className="first-letter:uppercase">{query?.replaceAll('-',' ')}</span>"
       </div>}
-      <div ref={ref} className="overflow-x-scroll scrollbar-hide  w-full mt-4 h-[90vh] flex relative flex-col md:flex-row scroll-smooth">
+      <div ref={ref} className="overflow-x-scroll scrollbar-hide  w-full mt-4 h-[80vh] flex relative flex-col md:flex-row scroll-smooth">
         {loading && <div ref={loadingRef} className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-70%] w-[80%] h-[80%] flex justify-center items-center"></div>}
         {!loading && games?.map((result) => (
-          <div className="min-w-[400px] max-h-[600px] hover:scale-[103%] transition-all  duration-[.65s] bg-[#20202e] odd:border-b-[#fc61ff] border-4 border-[#20202e] even:border-b-[#61ffda] m-5">
+          <div className="min-w-[400px] py-2 max-h-[660px] hover:scale-[103%] transition-all  duration-[.65s] bg-[#20202e] odd:border-b-[#fc61ff] border-4 border-[#20202e] even:border-b-[#61ffda] m-5">
               <GameForGenre result={result} key={result.id} />
           </div>
         ))}
       </div>
-      <div className="flex justify-between w-full absolute bottom-6">
-        <button onClick={() => scroll(-1500)} className="bg-white px-12 py-2 ml-8 text-black border-4 border-black shadow-cool2  bg-opacity-70 cursor-pointer hover:bg-opacity-100
+      <div className="flex justify-between w-full absolute -bottom-0">
+        <button onClick={() => scroll(-1500)} className="bg-[#292945] hover:bg-white hover:text-[#292945] rounded-lg px-6 py-2 ml-8 text-white  animate-zipper  cursor-pointer hover:bg-opacity-100
            transition text-[30px]">{<AiOutlineVerticalRight/>}</button>
-          <button onClick={() => scroll(1500)} className="bg-white px-12 py-2 mr-8 text-black border-4 border-black shadow-cool2  bg-opacity-70 cursor-pointer hover:bg-opacity-100
+          <button onClick={() => scroll(1500)} className="bg-[#292945] hover:bg-white hover:text-[#292945] rounded-lg px-6 py-2 mr-8 text-white animate-zipper  cursor-pointer hover:bg-opacity-100
            transition text-[30px]"><AiOutlineVerticalLeft/></button>
         </div>
         <Footer />

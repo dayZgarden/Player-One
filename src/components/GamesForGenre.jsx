@@ -92,7 +92,6 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
         className="h-[100%] flex w-full">
         <div
           className=" cursor-pointer  w-full">
-          <span className="z-50">
             {(inWishlist && !star) && 
               (
                 <figure ref={starRef} className="z-[100] p-1  w-[460px] h-[460px] absolute">
@@ -101,13 +100,12 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
              {(inWishlist && star) && 
             (
             <div className="">
-              <StarIcon className=" z-50 rounded-full  bg-gradient-to-r from-[#a881ff] to-[#5969Fe]  -top-6 -right-6 h-12 w-12 absolute cursor-default transition-all duration-500" /> 
+              <StarIcon className=" z-50 rounded-full bg-gradient-to-r from-[#a881ff] to-[#5969Fe]  -top-6 -right-6 h-12 w-12 absolute cursor-default transition-all duration-500" /> 
             </div>
             )}
             {!inWishlist && <button onClick={() => addToWishlist(result)} className="">
               <PlusIcon className=" z-[100] rounded-full hover:bg-yellow-400 text-white bg-gradient-to-r from-[#a881ff] to-[#5969Fe]  -top-6 -right-6 h-12 w-12 absolute hover:scale-[115%] transition-all duration-500" />
             </button>}
-          </span>
 
           <Link
             className="cursor-pointer p-4 relative w-full max-w-[420px] mx-auto flex justify-center scrollbar-hide"
