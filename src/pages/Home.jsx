@@ -44,7 +44,7 @@ const Home = ({wishlist, addToWishlist}) => {
         <Nav />
   
         <div className="w-full flex justify-between ">
-          <div className='w-[17%]'>
+          <div className='w-[17%] hidden lg:flex'>
             <Sidebar />
           </div> 
           
@@ -58,11 +58,12 @@ const Home = ({wishlist, addToWishlist}) => {
 
         </div>
         <div className='flex justify-center p-2 space-x-4'>
-          {page > 1 && <button onClick={() => setPage(page - 1)} className='transition-all duration-500 text-[30px] bg-white hover:scale-105 active:scale-100 px-8 py-2 text-black border-4 border-black shadow-cool2  bg-opacity-70 cursor-pointer hover:bg-opacity-100'>
+          {page > 1 && <button onClick={() => setPage(page - 1)} className='bg-[#292945] hover:bg-white hover:text-[#292945] rounded-lg px-6 py-2 ml-8 text-white  animate-zipper  cursor-pointer hover:bg-opacity-100
+           transition text-[30px]'>
             <AiOutlineVerticalRight className='font-black'/>
           </button>}
-          <button onClick={() => setPage(page + 1)} className='bg-white hover:scale-105 active:scale-100 px-8 py-2 text-black border-4 border-black shadow-cool2  bg-opacity-70 cursor-pointer hover:bg-opacity-100
-           transition-all duration-500 text-[30px]'>
+          <button onClick={() => setPage(page + 1)} className='bg-[#292945] hover:bg-white hover:text-[#292945] rounded-lg px-6 py-2 ml-8 text-white  animate-zipper  cursor-pointer hover:bg-opacity-100
+           transition text-[30px]'>
             <AiOutlineVerticalLeft className='font-extrabold'/>
           </button>
         </div>

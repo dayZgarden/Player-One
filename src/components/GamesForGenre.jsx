@@ -108,7 +108,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
             </button>}
 
           <Link
-            className="cursor-pointer p-4 relative w-full max-w-[420px] mx-auto flex justify-center scrollbar-hide"
+            className="cursor-pointer p-4 relative w-full max-w-[420px]  flex justify-center scrollbar-hide"
             to={{
               pathname: `/GameInfo/${result?.id}`,
             }}
