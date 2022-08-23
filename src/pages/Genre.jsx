@@ -26,16 +26,16 @@ export default function Genre({addToWishlist, wishlist}) {
   const query = location?.state?.word || '1';
   console.log(query)
 
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: loadingRef?.current, // the dom element that will contain the animation
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
-      animationData: Loading,
-    }) 
-  },)
+  // useEffect(() => {
+  //   lottie.loadAnimation({
+  //     container: loadingRef?.current, // the dom element that will contain the animation
+  //     renderer: 'svg',
+  //     loop: true,
+  //     autoplay: true,
+  //     path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
+  //     animationData: Loading,
+  //   }) 
+  // },)
 
   useEffect(() => {
     

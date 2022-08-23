@@ -111,6 +111,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
             className="cursor-pointer p-4 relative w-full max-w-[420px]  flex justify-center scrollbar-hide"
             to={{
               pathname: `/GameInfo/${result?.id}`,
+              key: result?.id,
             }}
           >
             <button className="w-full z-[1] flex flex-col items-center h-full justify-evenly space-y-4 group">
@@ -185,9 +186,9 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
                     <p className="border-b-2 border-[#41415a] ">Genres: </p>
                     <div className="flex space-x-1 border-b-2 border-[#41415a] ">
                       {result?.genres?.map((genre) => (
-                        <a href="" className="">
+                        <div href="" className="">
                           {genre?.name}
-                        </a>
+                        </div>
                       ))}
                     </div>
                   </div>

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import GameForGenre from "../components/GamesForGenre";
 import GameDisplay from "../components/GameDisplay";
 import Footer from "../components/Footer";
-import wishpic from "../assets/wishlist.svg";
 import Sidebar from "../components/Sidebar";
 import empty from "../assets/empty.json";
 import lottie from "lottie-web";
@@ -17,16 +16,16 @@ export default function WishList({
 }) {
   let navigate = useNavigate();
 
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: emptyRef?.current, // the dom element that will contain the animation
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      path: "https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json",
-      animationData: empty,
-    });
-  });
+  // useEffect(() => {
+  //   lottie.loadAnimation({
+  //     container: emptyRef?.current, // the dom element that will contain the animation
+  //     renderer: "svg",
+  //     loop: true,
+  //     autoplay: true,
+  //     path: "https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json",
+  //     animationData: empty,
+  //   });
+  // });
 
   const emptyRef = useRef(null);
 

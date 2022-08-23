@@ -4,26 +4,23 @@ import { Navigate, useParams } from "react-router-dom";
 import axios from 'axios'
 import { useNavigate, Link } from "react-router-dom";
 import getGames from "../utils/getGames";
-import GameForGenre from "../components/GamesForGenre";
-import { PlusIcon } from "@heroicons/react/outline";
 import Nav from "../components/nav";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-import Carousel from "react-multi-carousel";
-import 'react-multi-carousel/lib/styles.css';
+// import Carousel from "react-multi-carousel";
+// import 'react-multi-carousel/lib/styles.css';
 import { Markup } from "interweave";
 import convertDate from "../utils/convertDate";
 import changePlatformToImage from "../utils/changePlatformToImage";
 
-const GameInfo = (props) => {
+const GameInfo = ()  => {
   const [info, setInfo] = useState();
   const [games, setGames] = useState([])
   const [generating, setGenerating] = useState(true)
-  const [list, setList] = useState([])
   const [x, setX] = useState(0)
   const [pictures, setPictures] = useState([])
-  const [trailer, setTrailer] = useState('')
-  const [preview, setPreview] = useState('')
+  // const [trailer, setTrailer] = useState('')
+  // const [preview, setPreview] = useState('')
   const [para, setPara] = useState('')
 
   let {id} = useParams();
@@ -42,7 +39,6 @@ const GameInfo = (props) => {
     })
   }
 
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     setuserID(id)
@@ -87,24 +83,24 @@ const GameInfo = (props) => {
     fetchGameInfo({id})
   }, [])
 
- const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
+//  const responsive = {
+//     superLargeDesktop: {
+//       breakpoint: { max: 4000, min: 3000 },
+//       items: 1
+//     },
+//     desktop: {
+//       breakpoint: { max: 3000, min: 1024 },
+//       items: 1
+//     },
+//     tablet: {
+//       breakpoint: { max: 1024, min: 464 },
+//       items: 1
+//     },
+//     mobile: {
+//       breakpoint: { max: 464, min: 0 },
+//       items: 1
+//     }
+//   };
 
 
   return (
@@ -113,7 +109,7 @@ const GameInfo = (props) => {
         <Nav />
       </div>
       <div className="col-start-1 col-end-3">
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
       <div className="col-start-[4] col-end-10 flex flex-col scroll-smooth">
         <div className="col-span-2">
@@ -122,7 +118,7 @@ const GameInfo = (props) => {
             {pictures.map((picture) => {
               return <img src={picture} alt="" />
             })} */}
-            <Carousel
+            {/* <Carousel
               showDots={true}
               responsive={responsive}
               infinite={true}
@@ -153,7 +149,7 @@ const GameInfo = (props) => {
              {pictures[5] ? <div>
               <img src={pictures[5]} alt="" />
              </div> : null}
-            </Carousel>
+            </Carousel> */}
           <Markup className="" content={para || ''} />
           <div className="flex justify-between">
             <div className="flex flex-col">
@@ -172,9 +168,9 @@ const GameInfo = (props) => {
             <div className="flex flex-col ">
               <h2 className="underline underline-offset-2 ">Genres: </h2>
               <h2 className="space-x-1 flex">
-                  {info?.genres.map((genre) => (
+                  {info?.genres?.map((genre) => (
                     <p> 
-                       {genre.name}
+                       {genre?.name}
                     </p>
               ))}</h2>
             </div>

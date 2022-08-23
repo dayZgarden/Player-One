@@ -34,15 +34,6 @@ module.exports = {
         Bowl: ['Rubik Mono One', 'sans-serif']
       },
       backgroundImage: {
-        'cars': 'url(./assets/racing.jpg)',
-        'bo1': 'url(./assets/bo1.jpg)',
-        'borderlands': 'url(./assets/borderlands.jpg)',
-        'borderlands2': 'url(./assets/borderlands2.jpg)',
-        'borderlands3': 'url(./assets/borderlands3.jpg)',
-        'borderlands4': 'url(./assets/borderlands4.webp)',
-        'greenvg': 'url(./assets/greenvg.jpg)',
-        'spacegame': 'url(./assets/spacegame.png)',
-        'space': 'url(./assets/space.jpg)',
         'space2': 'url(./assets/space2.jpg)',
       },
       boxShadow: {
