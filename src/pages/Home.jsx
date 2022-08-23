@@ -9,6 +9,7 @@ import getGames from '../utils/getGames'
 import getFreeGames from '../utils/getFreeGames'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
 import Chimp from '../components/Chimp'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 const Home = ({wishlist, addToWishlist}) => {
     const [game, setGame] = useState([])
@@ -57,17 +58,17 @@ const Home = ({wishlist, addToWishlist}) => {
           }
 
         </div>
-        <div className='flex justify-center p-2 space-x-4'>
-          {page > 1 && <button onClick={() => setPage(page - 1)} className='bg-[#292945] hover:bg-white hover:text-[#292945] rounded-lg px-6 py-2 ml-8 text-white  animate-zipper  cursor-pointer hover:bg-opacity-100
-           transition text-[30px]'>
-            <AiOutlineVerticalRight className='font-black'/>
+        <div className='flex flex-col items-center p-2 space-x-4'>
+          <div className='flex'>
+          {page > 1 && <button onClick={() => setPage(page - 1)} className="bg-[#292945] hover:bg-white hover:text-[#292945] rounded-full p-3 ml-8 text-white  animate-zipper  cursor-pointer hover:bg-opacity-100
+           transition text-[30px]">{<FaArrowLeft/>}
           </button>}
-          <button onClick={() => setPage(page + 1)} className='bg-[#292945] hover:bg-white hover:text-[#292945] rounded-lg px-6 py-2 ml-8 text-white  animate-zipper  cursor-pointer hover:bg-opacity-100
-           transition text-[30px]'>
-            <AiOutlineVerticalLeft className='font-extrabold'/>
+          <button onClick={() => setPage(page + 1)} className="bg-[#292945] delay-100 hover:bg-white hover:text-[#292945] rounded-full p-3 ml-8 text-white  animate-zipper  cursor-pointer hover:bg-opacity-100
+           transition text-[30px]">{<FaArrowRight/>}
           </button>
+          </div>
+            <h1 className='mt-2 font-bold text-[16px]'>Page Number: {page} </h1>
         </div>
-        <h1 className='mt-2 tracking-widest font-bold text-[16px] flex justify-center'>Page Number: {page} </h1>
           <Footer />
 
       </div>

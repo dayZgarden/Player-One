@@ -8,8 +8,10 @@ export default function loading() {
     <div className="w-[90%] mx-auto flex flex-wrap mb-2 mr-4 scrollbar-hide mt-4 ml-2">
       <div className="p-2 ml-8 mb-4 w-full">
         <h1 className=" font-bold text-[76px] tracking-wider">
+        Top Rated Games
         </h1>
         <p className="opacity-90 text-[20px]">
+        Based on ratings and player counts
         </p>
       </div>
       <Chimp />

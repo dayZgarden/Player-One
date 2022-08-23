@@ -57,7 +57,7 @@ function App() {
 
           <Route path='/Wishlist' element={<WishList wishlist={wishlist} addToWishlist={addToWishlist} handleRemoveGame={handleRemoveGame} /> }/>
 
-          <Route path='/genre' element={<Genre/>}/>
+          <Route path='/genre' element={<Genre wishlist={wishlist} addToWishlist={addToWishlist}/>}/>
 
         </Routes>
       </Router>

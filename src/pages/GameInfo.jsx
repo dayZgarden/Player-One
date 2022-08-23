@@ -109,7 +109,7 @@ const GameInfo = (props) => {
 
   return (
     <div className="h-full grid grid-cols-12">
-      <div className="col-start-2 col-end-12">
+      <div className="col-span-12">
         <Nav />
       </div>
       <div className="col-start-1 col-end-3">
