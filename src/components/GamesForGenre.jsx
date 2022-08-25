@@ -30,7 +30,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
 
   async function getTrailers() {
     const { data } = await axios.get(
-      `https://api.rawg.io/api/games/${result?.id}/movies?key=950ecb52769e4a53b647742fff1a1226`
+      `https://api.rawg.io/api/games/${result?.id}/movies?key=86d224c0e8ce481aaf1756921701687d`
     );
     setTrailer(data?.results[0]?.data?.max);
     setPreview(data?.results[0]?.preview);

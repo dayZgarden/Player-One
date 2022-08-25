@@ -10,7 +10,7 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Footer from "../components/Footer";
 import Loading from '../assets/Loading.json'
 import lottie from 'lottie-web'
-
+import { motion } from "framer-motion";
 
 export default function Genre({addToWishlist, wishlist}) {
   const [games, setGames] = useState([]);
@@ -26,16 +26,16 @@ export default function Genre({addToWishlist, wishlist}) {
   const query = location?.state?.word || '1';
   console.log(query)
 
-  // useEffect(() => {
-  //   lottie.loadAnimation({
-  //     container: loadingRef?.current, // the dom element that will contain the animation
-  //     renderer: 'svg',
-  //     loop: true,
-  //     autoplay: true,
-  //     path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
-  //     animationData: Loading,
-  //   }) 
-  // },)
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: loadingRef?.current, // the dom element that will contain the animation
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
+      animationData: Loading,
+    }) 
+  },)
 
   useEffect(() => {
     
@@ -76,7 +76,10 @@ export default function Genre({addToWishlist, wishlist}) {
 
 
   return (
-    <div className="w-full scrollbar-hide h-full flex flex-col">
+    <motion.div className="w-full scrollbar-hide h-full flex flex-col"
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}>
         <Nav/>
       {search?.length > 1 && <div className="flex justify-center sticky text-[24px] underline underline-offset-2">
         Search results for "<span className="first-letter:uppercase">{query?.replaceAll('-',' ')}</span>"
@@ -96,6 +99,6 @@ export default function Genre({addToWishlist, wishlist}) {
            transition text-[30px]"><FaArrowRight/></button>
         </div>
         <Footer />
-    </div>
+    </motion.div>
   );
 }

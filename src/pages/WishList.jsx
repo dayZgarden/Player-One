@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import empty from "../assets/empty.json";
 import lottie from "lottie-web";
+import { motion } from "framer-motion";
 
 export default function WishList({
   wishlist,
@@ -16,21 +17,24 @@ export default function WishList({
 }) {
   let navigate = useNavigate();
 
-  // useEffect(() => {
-  //   lottie.loadAnimation({
-  //     container: emptyRef?.current, // the dom element that will contain the animation
-  //     renderer: "svg",
-  //     loop: true,
-  //     autoplay: true,
-  //     path: "https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json",
-  //     animationData: empty,
-  //   });
-  // });
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: emptyRef?.current, // the dom element that will contain the animation
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json",
+      animationData: empty,
+    });
+  });
 
   const emptyRef = useRef(null);
 
   return (
-    <div className="h-screen flex flex-col">
+    <motion.div className="h-screen flex flex-col"
+    initial={{opacity: 0, rotate: 180, scale: .5}}
+    animate={{opacity: 1, rotate: 360, scale: 1, transition: {duration: 0.7} }}
+    exit={{opacity: 0, rotate: 0, scale: .5, transition: {duration: 0.7}}}>
       <Nav />
       <Sidebar />
       <div className="flex mt-8 justify-center ">
@@ -75,6 +79,6 @@ export default function WishList({
         )}
       </div>
       <Footer />
-    </div>
+    </motion.div>
   );
 }

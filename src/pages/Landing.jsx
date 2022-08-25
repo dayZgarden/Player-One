@@ -20,6 +20,7 @@ import friendsx from '../assets/friends.json'
 import futurex from '../assets/future.json'
 import spacedude from '../assets/spacedude.json'
 import { Gi3DMeeple } from 'react-icons/gi'
+import { motion } from "framer-motion";
 
 export default function Landing() {
     const navigate = useNavigate()
@@ -39,40 +40,40 @@ export default function Landing() {
             }
           )
           console.log(game)
-        //   if(X === 0) {
-        //       lottie.loadAnimation({
-        //         container: container?.current, // the dom element that will contain the animation
-        //         renderer: 'svg',
-        //         loop: true,
-        //         autoplay: true,
-        //         path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
-        //         animationData: videogames
-        //       }) 
-        //       lottie.loadAnimation({
-        //         container: spaceman?.current, // the dom element that will contain the animation
-        //         renderer: 'svg',
-        //         loop: true,
-        //         autoplay: true,
-        //         path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
-        //         animationData: spacedude
-        //       }) 
-        //       lottie.loadAnimation({
-        //         container: future?.current, // the dom element that will contain the animation
-        //         renderer: 'svg',
-        //         loop: true,
-        //         autoplay: true,
-        //         path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
-        //         animationData: futurex
-        //       }) 
-        //       lottie.loadAnimation({
-        //         container: friends?.current, // the dom element that will contain the animation
-        //         renderer: 'svg',
-        //         loop: true,
-        //         autoplay: true,
-        //         path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
-        //         animationData: friendsx
-        //       }) 
-        // } 
+          if(X === 0) {
+              lottie.loadAnimation({
+                container: container?.current, // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
+                animationData: videogames
+              }) 
+              lottie.loadAnimation({
+                container: spaceman?.current, // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
+                animationData: spacedude
+              }) 
+              lottie.loadAnimation({
+                container: future?.current, // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
+                animationData: futurex
+              }) 
+              lottie.loadAnimation({
+                container: friends?.current, // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://assets7.lottiefiles.com/packages/lf20_0qQqQq.json',
+                animationData: friendsx
+              }) 
+        } 
     }, [])
 
     const container = useRef(null)
@@ -82,7 +83,12 @@ export default function Landing() {
     
 
   return (
-    <div className='h-full w-full relative scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100 overflow-x-hidden'>
+    <motion.div 
+       className='h-full w-full relative scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100 overflow-x-hidden'
+       initial={{opacity: 0}}
+       animate={{opacity: 1}}
+       exit={{opacity: 0}}
+       >
         <button className='fixed cursor-pointer hover:scale-110 duration-300 transition-all bottom-6 right-6 z-[100]'><ChatAlt2Icon className='w-20 h-20 p-2 text-white bg-gradient-to-r from-[#a881ff] to-[#5969Fe] rounded-full' /></button>
         <div className='bg-space2 bg-cover bg-center bg-no-repeat'>
             <div className='h-full w-full backdrop-blur-lg backdrop-opacity-70 bg-[#1c1c28] bg-opacity-80'>
@@ -324,6 +330,6 @@ export default function Landing() {
         </section>
 
         <Footer />
-    </div>
+    </motion.div>
   )
 }

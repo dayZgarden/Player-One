@@ -10,6 +10,7 @@ import getFreeGames from '../utils/getFreeGames'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
 import Chimp from '../components/Chimp'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import {motion } from 'framer-motion'
 
 const Home = ({wishlist, addToWishlist}) => {
     const [game, setGame] = useState([])
@@ -41,7 +42,10 @@ const Home = ({wishlist, addToWishlist}) => {
 
   
     return (
-      <div className='overflow-x-scroll scrollbar-hide'>
+      <motion.div className='overflow-x-scroll scrollbar-hide'
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
         <Nav />
   
         <div className="w-full flex justify-between ">
@@ -71,7 +75,7 @@ const Home = ({wishlist, addToWishlist}) => {
         </div>
           <Footer />
 
-      </div>
+      </motion.div>
     );
 }
 

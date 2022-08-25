@@ -35,6 +35,7 @@ module.exports = {
       },
       backgroundImage: {
         'space2': 'url(./assets/space2.jpg)',
+        'trident': 'url(./assets/trident.png)',
       },
       boxShadow: {
         'cool': '5px 7px 0px 0px rgb(17 24 49)',
