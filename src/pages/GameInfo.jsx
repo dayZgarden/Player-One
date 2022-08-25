@@ -144,8 +144,11 @@ const GameInfo = () => {
           <h1 className="text-[50px] w-[65%] translate-x-[6%] border-[#282838] border-4 bg-gradient-to-t from-[#1c1c28] to-gray-900 font-bold text-white rotate-[-1deg]  text-center break-words  p-2">
             {info?.name}
           </h1>
+          <figure className="rotate-[-1deg] w-[60%] h-full max-h-[500px] mt-10 overflow-hidden mx-auto border-4 border-black shadow-cool2">
+            <img className="w-full h-full object-cover object-center " src={info?.background_image} alt="" />
+          </figure>
           <div className="flex justify-between">
-            <Carousel
+            {/* <Carousel
               showDots={true}
               responsive={responsive}
               infinite={true}
@@ -221,7 +224,7 @@ const GameInfo = () => {
                   />
                 </div>
               ) : null}
-            </Carousel>
+            </Carousel> */}
             <div className="flex flex-col justify-evenly w-[25%] break-words rotate-[-1deg] transition-all  duration-[.65s] bg-gradient-to-t from-[#1c1c28] to-gray-900 p-2 border-8 border-[#282838] ">
               <div>Title: {info?.name}</div>
               <div className="flex">
