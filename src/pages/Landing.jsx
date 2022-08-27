@@ -194,27 +194,38 @@ export default function Landing() {
             <span className='max-w-[420px] max-h-[420px] h-full w-full aspect-square rounded-full bg-[#352e53] blur-[50px] opacity-90 absolute top-1/2 translate-y-[-70%] -right-36'></span> */}
             <div className='h-full w-full  p-20'>
             {!infoModal ? <div className='flex flex-col  w-full'>
-                <div className='flex flex-col  max-w-[1350px]  mx-auto  text-center'>
-                    <h1 className='text-[24px] font-bold uppercase text-[#FFBF66]'>——  Discover Games  ——</h1>
-                    <h1 className=' text-white font-bold  text-[50px] w-[75%] mx-auto leading-snug'>
+                <div className='flex flex-col   text-center'>
+                    <h1 className='text-[24px]  max-w-[1350px]  mx-auto font-bold uppercase text-[#FFBF66]'>——  Discover Games  ——</h1>
+                    <h1 className=' text-white  max-w-[1350px]  mx-auto font-bold  text-[50px] w-[75%] leading-snug'>
                         Endless games to be found from any platform
                     </h1>
-                    <div className='w-full max-w-[1000px] mx-auto flex flex-wrap justify-evenly mt-20 '>
-                        <button className='w-[30%]  relative hover:scale-[120%] group transition-all duration-500 hover:aspect-square bg-[#20202e] h-[380px]'>
-                            <div className='h-full w-full border-[#282838] border-t-[#fc61ff] border-2'>
+                    <div className='w-full max-w-[1900px] mx-auto flex flex-wrap justify-evenly mt-20 '>
+                        <button className='w-[18%]  relative hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] border-t-[#fc61ff] border-2'>
                                 <img className='w-full h-full object-cover object-center p-3' src={game[4]?.background_image} alt="" />
                             </div>
                         </button>
-                        <button className='w-[30%]  bg-[#20202e] max-h-[100%] h-[380px]'>
-                            <div className='h-full w-full border-[#282838] border-t-[#7b61ff] border-2'>
+                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] border-t-[#7b61ff] border-2'>
                                 <img className='w-full h-full object-cover object-center p-3 ' src={game[5]?.background_image} alt="" />
                             </div>
                         </button>
-                        <button className='w-[30%]  bg-[#20202e] max-h-[100%] h-[380px]'>
-                            <div className='h-full w-full border-[#282838] border-t-[#61ffda] border-2'>
+                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] border-t-[#61ffda] border-2'>
                                 <img className='w-full h-full object-cover object-center p-3 ' src={game[6]?.background_image} alt="" />
                             </div>
                         </button>
+                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] border-t-[#61ffda] border-2'>
+                                <img className='w-full h-full object-cover object-center p-3 ' src={game[7]?.background_image} alt="" />
+                            </div>
+                        </button>
+                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] border-t-[#61ffda] border-2'>
+                                <img className='w-full h-full object-cover object-center p-3 ' src={game[8]?.background_image} alt="" />
+                            </div>
+                        </button>
+ 
                     </div>
                 </div>
 

@@ -107,70 +107,69 @@ export default function Sidebar() {
       url: '/genre',
       Icon: {FaQuidditch},
     },
-    
   ]
 
   return (
     <div className='hidden m-5 top-0 bottom-0 lg:left-0 
     text-center  flex-col flex-1 fixed text-white lg:flex max-h-[80vh] h-full translate-y-[20%] overflow-y-scroll scrollbar-hide'>
-      <div className='border-l-2  mb-2 border-[#fc61ff]'>
+      <div className=' mb-2 border-[#fc61ff]'>
         <SidebarItem title="Trending" url={'/genre'} Icon={FaFire} />
       </div>
-      <div className='border-l-2  mb-2 border-[#7b61ff]'>
+      <div className=' mb-2 border-[#7b61ff]'>
         <SidebarItem title="New Releases" url={'/genre'} Icon={FaCalendar} />
       </div>
-      <div className='border-l-2  mb-2 border-[#61ffda]'>
+      <div className=' mb-2 border-[#61ffda]'>
         <SidebarItem title="Top Rated" url={'/genre'} Icon={FaTrophy} />
       </div>
-      <div className='border-l-2  mb-2 border-[#fc61ff]'>
+      <div className=' mb-2 border-[#fc61ff]'>
         <SidebarItem title="Last Month" url={'/genre'} Icon={FaChartBar} />
       </div>
-      <div className='border-l-2  mb-2 border-[#7b61ff]'>
+      <div className=' mb-2 border-[#7b61ff]'>
         <SidebarItem title="All Time" url={'/genre'} Icon={FaAnchor} />
       </div>
-      <div className='border-l-2  mb-2 border-[#61ffda]'>
+      <div className=' mb-2 border-[#61ffda]'>
         <SidebarItem title="Platforms" url={'/genre'} Icon={FaGamepad} />
       </div>
-      <div className='border-l-2  mb-2 border-[#fc61ff]'>
+      <div className=' mb-2 border-[#fc61ff]'>
         <SidebarItem title="Stores" url={'/genre'} Icon={FaLandmark} />
       </div>
-      <div className='border-l-2  mb-2 border-[#7b61ff]'>
+      <div className=' mb-2 border-[#7b61ff]'>
         <SidebarItem title="Genres" url={'/genre'} Icon={FaCrown} />
       </div>
-      <div className='border-l-2  mb-2 border-[#61ffda]'>
+      <div className=' mb-2 border-[#61ffda]'>
         <SidebarItem title="Developers" url={'/genre'} Icon={FaDna} />
       </div>
-      <div className='border-l-2  mb-2 border-[#fc61ff]'>
+      <div className=' mb-2 border-[#fc61ff]'>
         <SidebarItem title="Publishers" url={'/genre'} Icon={FaDove} />
       </div>
-      <div className='border-l-2  mb-2 border-[#7b61ff]'>
+      <div className=' mb-2 border-[#7b61ff]'>
         <SidebarItem title="Tags" url={'/genre'} Icon={FaTags} />
       </div>
-      <div className='border-l-2  mb-2 border-[#61ffda]'>
+      <div className=' mb-2 border-[#61ffda]'>
         <SidebarItem title="Action" url={'/genre'} Icon={FaFistRaised} />
       </div>
-      <div className='border-l-2  mb-2 border-[#fc61ff]'>
+      <div className=' mb-2 border-[#fc61ff]'>
         <SidebarItem title="Adventure" url={'/genre'} Icon={FaFlagCheckered} />
       </div>
-      <div className='border-l-2  mb-2 border-[#7b61ff]'>
+      <div className=' mb-2 border-[#7b61ff]'>
         <SidebarItem title="Shooter" url={'/genre'} Icon={FaShieldAlt} />
       </div>
-      <div className='border-l-2  mb-2 border-[#61ffda]'>
+      <div className=' mb-2 border-[#61ffda]'>
         <SidebarItem title="Casual" url={'/genre'} Icon={FaWalking} />
       </div>
-      <div className='border-l-2  mb-2 border-[#fc61ff]'>
+      <div className=' mb-2 border-[#fc61ff]'>
         <SidebarItem title="Indie" url={'/genre'} Icon={FaSpider} />
       </div>
-      <div className='border-l-2  mb-2 border-[#7b61ff]'>
+      <div className=' mb-2 border-[#7b61ff]'>
         <SidebarItem title="Racing" url={'/genre'} Icon={FaCarAlt} />
       </div>
-      <div className='border-l-2  mb-2 border-[#61ffda]'>
+      <div className=' mb-2 border-[#61ffda]'>
         <SidebarItem title="MMO" url={'/genre'} Icon={FaStarAndCrescent} />
       </div>
-      <div className='border-l-2  mb-2 border-[#fc61ff]'>
+      <div className=' mb-2 border-[#fc61ff]'>
         <SidebarItem title="Strategy" url={'/genre'} Icon={FaChessRook} />
       </div>
-      <div className='border-l-2  mb-2 border-[#7b61ff]'>
+      <div className=' mb-2 border-[#7b61ff]'>
         <SidebarItem title="Sports" url={'/genre'} Icon={FaQuidditch} />
       </div>
     </div>

@@ -32,8 +32,8 @@ export default function WishList({
 
   return (
     <motion.div className="h-screen flex flex-col"
-    initial={{opacity: 0, rotate: 180, scale: .5}}
-    animate={{opacity: 1, rotate: 360, scale: 1, transition: {duration: 0.7} }}
+    initial={{opacity: 0,  scale: .5}}
+    animate={{opacity: 1,  scale: 1, transition: {duration: 0.7} }}
     exit={{opacity: 0, rotate: 0, scale: .5, transition: {duration: 0.7}}}>
       <Nav />
       <Sidebar />
@@ -51,7 +51,11 @@ export default function WishList({
         ) : (
           <div className="p-6">
             {wishlist.map((game) => (
-              <div className="p-6 mb-2 " key={game.id}>
+              <motion.div
+              initial={{opacity: 0,  scale: .5}}
+              animate={{opacity: 1,  scale: 1, transition: {duration: 1} }}
+              exit={{opacity: 0, rotate: 0, scale: .5, transition: {duration: 0.7}}} 
+              className="p-6 mb-2 " key={game.id}>
                 {<GameDisplay result={game} key={game.id} />}
                 <div className="flex space-x-4">
                   <div className="group relative ">
@@ -73,7 +77,7 @@ export default function WishList({
                     <span className="absolute opacity-0 group-hover:opacity-100 -left-6 group-hover:left-0 transition-all duration-[300ms] -bottom-1 w-full border-b-2 border-red-600 height-[10px] z-50"></span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}

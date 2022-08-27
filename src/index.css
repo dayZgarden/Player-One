@@ -8,7 +8,7 @@
 
 @layer base {
   body {
-      @apply text-white; @apply bg-[#1c1c28];
+      @apply text-white; @apply bg-[#1c1c28]; 
   }
 }
 

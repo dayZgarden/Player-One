@@ -188,7 +188,7 @@ const GameInfo = () => {
                   />
                 </div>
               ) : null}
-              {pictures[2] ? (
+              {pictures[2] ? (n
                 <div className="w-full h-full">
                   <img
                     className="w-full h-full object-cover object-center  "
