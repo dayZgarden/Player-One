@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./cursor.css" />
     <title>Discover New Games</title>
   </head>
   <body>
     <div id="root"></div>
+    <div class="cursor"></div>
+
+    <script>
+      const cursor = document.querySelector(".cursor");
+      var timeout;
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.top = e.clientY + "px";
+        cursor.style.left = e.clientX + "px";
+        cursor.style.display = "block";
+
+        function mouseStopped() {
+          cursor.style.display = "none";
+        }
+        clearTimeout(timeout)
+        timeout = setTimeout(mouseStopped, 1000);
+      });
+
+      document.addEventListener("mouseleave", () => {
+        cursor.style.display = "none";
+      });
+
+      document.addEventListener("click", () => {
+        cursor.classList.add("click");
+        setTimeout(() => {
+          cursor.classList.remove("click");
+        }, 500);
+      })
+
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
