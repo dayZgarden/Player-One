@@ -21,6 +21,13 @@ import futurex from '../assets/future.json'
 import spacedude from '../assets/spacedude.json'
 import { Gi3DMeeple } from 'react-icons/gi'
 import { motion } from "framer-motion";
+import mw2 from "../assets/mw2.jpg"
+import sonic from "../assets/sonic.jpg"
+import ruby from "../assets/ruby.jpg"
+import need4speed from "../assets/need4speed.jpg"
+import LoL from "../assets/LoL.png"
+import { AiOutlineMenu } from 'react-icons/ai'
+
 
 export default function Landing() {
     const navigate = useNavigate()
@@ -28,6 +35,7 @@ export default function Landing() {
     const [game, setGame] = useState([])
     const [loading, setLoading] = useState(true)
     const [X, setX] = useState(0)
+    const [burger, setBurger] = useState(false)
 
     useEffect(() => {
         let page = 15;
@@ -90,13 +98,14 @@ export default function Landing() {
        exit={{opacity: 0}}
        >
         <button className='fixed cursor-pointer hover:scale-110 duration-300 transition-all bottom-6 right-6 z-[100]'><ChatAlt2Icon className='w-20 h-20 p-2 text-white bg-gradient-to-r from-[#a881ff] to-[#5969Fe] rounded-full' /></button>
-        <div className='bg-space2 bg-cover bg-center bg-no-repeat'>
+
+        <div className='bg-space2 bg-cover bg-center bg-no-repeat h-screen'>
             <div className='h-full w-full backdrop-blur-lg backdrop-opacity-70 bg-[#1c1c28] bg-opacity-80'>
             <nav className='h-[170px] sticky flex justify-between items-center w-[95%] mx-auto'>
                 <div className="flex items-center">
                     <h1 className="font-bold text-4xl  uppercase">Player one</h1>
                  </div>
-                 <div className=''>
+                 <div className='hidden lg:inline'>
                     <ul className='flex justify-evenly'>
                         <li className='px-6 text-[20px] group relative'>
                             <a className='' href="/">Home</a>
@@ -120,37 +129,34 @@ export default function Landing() {
                         </li>
                     </ul>
                  </div>
-                 <div className='text-[20px]'>
+                 <div className='text-[20px] hidden lg:inline'>
                     <button className='' onClick={() => navigate('/games')}> 
                         Log in
                     </button>
-
                  </div>
+                 <AiOutlineMenu onClick={() => setBurger(!burger)} className='inline lg:hidden w-16 h-16' />
             </nav>
             <section className='h-[calc(100vh-170px)] max-w-[1350px] mx-auto w-full flex '> 
-                <div className='max-w-[1350px] h-full flex flex-col'>
-                    <div className='mt-8'>
-                        <h1 className=' flex-1 text-[110px] text-center font-black uppercase h-full  text-white leading-[110px] tracking-[1px]'>
+                <div className='max-w-[1350px] flex flex-col'>
+                    <div className='mt-8 '>
+                        <h1 className=' flex-1 text-[8vw] text-center sm:text-[58px] md:text-[70px] w-[95%] mx-auto lg:text-[90px] xl:text-[110px] font-bold sm:font-black uppercase text-white lg:leading-[110px] tracking-[1px]'>
                              Discover amazing games & explore with friends
                         </h1>
                     </div>
-                    <div className='text-[24px] text-center mt-12 text-white w-[60%] mx-auto'>
+                    <div className='text-[4vw] sm:text-[24px] text-center mt-12 text-white w-[60%] mx-auto'>
                         The world's largest database of video games to discover new games and connect with other players.
                     </div>
                     <button onClick={() => navigate('/games')} className='p-6 hover:w-[30%] hover:tracking-widest transition-all duration-500 
-                     text-[24px] text-white font-bold tracking-wide mt-12 w-[25%] mx-auto bg-gradient-to-r from-[#a881ff] to-[#5969Fe] rounded-md shadow-md active:w-[25%] active:tracking-wide
+                     text-[24px] text-white font-bold tracking-wide mt-12 w-[50%] md:w-[32%] lg:w-[25%] mx-auto bg-gradient-to-r from-[#a881ff] to-[#5969Fe] rounded-md shadow-md active:w-[25%] active:tracking-wide
                       active:scale-90'>
                         Start Discovering
                     </button>
-                </div>
-                <div className='absolute bottom-3 justify-center max-w-[1350px] w-full items-center flex'>
-                    <FaArrowDown className='w-16 h-16 animate-bounce transition-all duration-300' />
                 </div>
             </section>
             </div>
         </div>
         
-        <span className='flex justify-center w-full p-20 bg-gradient-to-t from-[#1c1c28] to-gray-900'>
+        <span className='flex justify-center mx-auto  sm:w-full p-10  sm:p-20 bg-gradient-to-t from-[#1c1c28] to-gray-900'>
             <img src={consoles} alt="" />
         </span>
 
@@ -163,28 +169,28 @@ export default function Landing() {
                     <h1 className='text-[#FFBF66] font-bold uppercase text-[24px]'>—— PLAYER ONE ——</h1>
                     <h2 className='text-white font-bold  text-[50px] text-center w-[75%] mx-auto leading-snug'>Crossing the boundary between the void of games & players</h2>
                 </div>
-                <div className='flex flex-wrap w-[1350px] mx-auto mt-20 justify-evenly relative'>
+                <div className='flex flex-wrap  mx-auto mt-20 justify-evenly relative'>
+                    <div className='w-[25%] bg-[#20202e] relative flex items-center justify-center h-[380px] flex-col border-b-2 py-4 border-[#fc61ff]'>
+                        <h1 className='bg-[#fff] text-[#282838] font-bold w-[70%] absolute text-[20px] -top-4 -left-8 border-4 border-[#282838] rotate-[-8deg]  p-2'>Endless Games</h1>
+                        <h2 className="font-bold  text-[20px] text-center mt-8  w-[90%] mx-auto">Our database has over 800,000 games to discover on any platform from any time. </h2>
+                        <figure ref={spaceman} className='w-[50%]  z-[100] mt-4 '></figure>
+                    </div>
+                    <div className='w-[25%] bg-[#20202e] items-center justify-center h-[380px] flex flex-col border-b-2 border-[#7b61ff] relative'>
+                        <h1 className='bg-[#fff] text-[#282838] font-bold w-[70%] absolute text-[20px] -top-4  border-4 border-[#282838]   p-2'>Match With Players</h1>
+                        <h2 className="font-bold text-[20px] text-center mt-8  w-[90%] mx-auto">Find other players who are interested in the same games as you. Connect and start playing.</h2>
+                        <figure ref={future} className='w-[90%] h-[190px] z-[100] '></figure>
+                    </div>
+                    <div className='w-[25%]  bg-[#20202e] items-center justify-center h-[380px] flex flex-col border-b-2 border-[#61ffda] relative'>
+                        <h1 className='bg-[#fff] text-[#282838] font-bold w-[70%] absolute text-[20px] -top-4 -right-8 border-4 border-[#282838] rotate-[8deg]  p-2'>Future Releases</h1>
+                        <h2 className="font-bold text-[20px] text-center mt-8  w-[90%] mx-auto">We bring the latest games to you and provide information exclusively on our platform.</h2>
+                        <figure ref={friends} className='w-[100%]  z-[100] '></figure>
+                    </div>
                     <span className='max-w-[300px] max-h-[300px] h-full w-full aspect-square rounded-full animation-delay-2s bg-[#fc61ff] blur-[50px] opacity-70 absolute
                      animate-blob left-40 bottom-20 z-[-2]'></span>
                     <span className='max-w-[340px] max-h-[340px] h-full w-full aspect-square rounded-full animation-delay-4s bg-[#7b61ff] blur-[50px] opacity-70 absolute 
                        animate-blob z-[-2]'></span>
                     <span className='max-w-[300px] max-h-[300px] h-full w-full aspect-square rounded-full bg-[#61ffda] blur-[50px] opacity-70 absolute
                        right-40 animate-blob z-[-2]'></span>
-                    <div className='w-[25%] bg-[#20202e] relative flex items-center justify-center h-[380px] flex-col border-b-2 py-4 border-[#fc61ff]'>
-                        <h1 className='bg-[#57576a] font-bold w-[70%] absolute text-[20px] -top-4 -left-8 border-4 border-[#282838] rotate-[-8deg]  p-2'>Endless Games</h1>
-                        <h2 className="font-bold  text-[20px] text-center mb-36 w-[90%] mx-auto">Our database has over 800,000 games to discover on any platform from any time. </h2>
-                        <figure ref={spaceman} className='w-[50%] h-[50%] z-[100] mt-4 absolute bottom-5'></figure>
-                    </div>
-                    <div className='w-[25%] bg-[#20202e] items-center justify-center h-[380px] flex flex-col border-b-2 border-[#7b61ff] relative'>
-                        <h1 className='bg-[#57576a] font-bold w-[70%] absolute text-[20px] -top-4 -left-8 border-4 border-[#282838] rotate-[-8deg]  p-2'>Match With Players</h1>
-                        <h2 className="font-bold text-[20px] text-center mb-36 w-[90%] mx-auto">Find other players who are interested in the same games as you. Connect and start playing.</h2>
-                        <figure ref={future} className='w-[80%] h-[80%] z-[100] absolute -bottom-8 '></figure>
-                    </div>
-                    <div className='w-[25%]  bg-[#20202e] items-center justify-center h-[380px] flex flex-col border-b-2 border-[#61ffda] relative'>
-                        <h1 className='bg-[#57576a] font-bold w-[70%] absolute text-[20px] -top-4 -left-8 border-4 border-[#282838] rotate-[-8deg]  p-2'>Future Releases</h1>
-                        <h2 className="font-bold text-[20px] text-center mb-32 w-[90%] mx-auto">We bring the latest games to you and provide information exclusively on our platform.</h2>
-                        <figure ref={friends} className='w-[100%] h-[100%] z-[100] absolute -bottom-20'></figure>
-                    </div>
                 </div>
             </div>
         </section>
@@ -194,37 +200,37 @@ export default function Landing() {
             <span className='max-w-[420px] max-h-[420px] h-full w-full aspect-square rounded-full bg-[#352e53] blur-[50px] opacity-90 absolute top-1/2 translate-y-[-70%] -right-36'></span> */}
             <div className='h-full w-full  p-20'>
             {!infoModal ? <div className='flex flex-col  w-full'>
-                <div className='flex flex-col   text-center'>
+                <div className='flex flex-col w-full  text-center'>
                     <h1 className='text-[24px]  max-w-[1350px]  mx-auto font-bold uppercase text-[#FFBF66]'>——  Discover Games  ——</h1>
                     <h1 className=' text-white  max-w-[1350px]  mx-auto font-bold  text-[50px] w-[75%] leading-snug'>
                         Endless games to be found from any platform
                     </h1>
-                    <div className='w-full max-w-[1900px] mx-auto flex flex-wrap justify-evenly mt-20 '>
-                        <button className='w-[18%]  relative hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] h-[380px]'>
-                            <div className='h-full w-full border-[#1c1c28] border-t-[#fc61ff] border-2'>
-                                <img className='w-full h-full object-cover object-center p-3' src={game[4]?.background_image} alt="" />
+                    <div className=' mx-auto flex flex-wrap justify-evenly mt-10 '>
+                        <div className='lg:w-[18%] w-[30%]  hover:scale-[105%] group transition-all duration-500 hover:aspect-square bg-[#20202e] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] -[#fc61ff] border-2 p-2'>
+                                <img className='w-full h-full  object-center p-2' src={mw2} alt="" />
                             </div>
-                        </button>
-                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
-                            <div className='h-full w-full border-[#1c1c28] border-t-[#7b61ff] border-2'>
-                                <img className='w-full h-full object-cover object-center p-3 ' src={game[5]?.background_image} alt="" />
+                        </div>
+                        <div className='lg:w-[18%] w-[30%] hover:scale-[105%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] -[#7b61ff] border-2'>
+                                <img className='w-full h-full object- object-center p-3 ' src={ruby} alt="" />
                             </div>
-                        </button>
-                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
-                            <div className='h-full w-full border-[#1c1c28] border-t-[#61ffda] border-2'>
-                                <img className='w-full h-full object-cover object-center p-3 ' src={game[6]?.background_image} alt="" />
+                        </div>
+                        <div className='lg:w-[18%] w-[30%] hover:scale-[105%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] -[#61ffda] border-2'>
+                                <img className='w-full h-full object- object-center p-3 ' src={sonic} alt="" />
                             </div>
-                        </button>
-                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
-                            <div className='h-full w-full border-[#1c1c28] border-t-[#61ffda] border-2'>
-                                <img className='w-full h-full object-cover object-center p-3 ' src={game[7]?.background_image} alt="" />
+                        </div>
+                        <div className='lg:w-[18%] hidden lg:inline hover:scale-[105%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] -[#61ffda] border-2'>
+                                <img className='w-full h-full object-cover object-center p-3 ' src={LoL} alt="" />
                             </div>
-                        </button>
-                        <button className='w-[18%] hover:scale-[110%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
-                            <div className='h-full w-full border-[#1c1c28] border-t-[#61ffda] border-2'>
-                                <img className='w-full h-full object-cover object-center p-3 ' src={game[8]?.background_image} alt="" />
+                        </div>
+                        <div className='lg:w-[18%] hidden lg:inline hover:scale-[105%] group transition-all duration-500 hover:aspect-square bg-[#20202e] max-h-[100%] h-[380px]'>
+                            <div className='h-full w-full border-[#1c1c28] -[#61ffda] border-2'>
+                                <img className='w-full h-full object- object-center p-3 ' src={need4speed} alt="" />
                             </div>
-                        </button>
+                        </div>
  
                     </div>
                 </div>
