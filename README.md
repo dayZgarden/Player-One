@@ -6,7 +6,7 @@
     <img src="https://cdn.discordapp.com/attachments/880274195093811313/1147916321057689600/Playerone.png" alt="Logo" width="800" height="800">
   </a>
 
-<h3 align="center">dayZgamer</h3>
+<h3 align="center">Player One</h3>
 
   <p align="center">
    Developed and deployed a videogame database application with a creative design and a good user experience. 
