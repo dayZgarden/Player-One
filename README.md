@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a target="_blank" href="https://day-zgamer.vercel.app/">
-    <img src="https://cdn.discordapp.com/attachments/880274195093811313/1147916321057689600/Playerone.png" alt="Logo" width="1000" height="800">
+    <img src="https://cdn.discordapp.com/attachments/880274195093811313/1147916321057689600/Playerone.png" alt="Logo" width="800" height="800">
   </a>
 
 <h3 align="center">dayZgamer</h3>
