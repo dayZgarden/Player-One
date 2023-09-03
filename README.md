@@ -1,17 +1,17 @@
-# dayZgamer
+# Player One
 
 <br />
 <div align="center">
   <a target="_blank" href="https://day-zgamer.vercel.app/">
-    <img src="https://user-images.githubusercontent.com/106930540/183260383-431c2f09-183b-4eb4-98f0-ab459c18f733.png" alt="Logo" width="1000" height="800">
+    <img src="https://cdn.discordapp.com/attachments/880274195093811313/1147916321057689600/Playerone.png" alt="Logo" width="1000" height="800">
   </a>
 
 <h3 align="center">dayZgamer</h3>
 
   <p align="center">
-    Videogame database / catalog. Features a landing page with a browse game call to action. The user is able to search for any game through query, recommendation,
-    or genre sorting. The home page displays the rating and adds for each game and can be navigated with page numbers. Further game information is given when the 
-    user picks a game inluding acheivements, description, another image, and genres.
+   Developed and deployed a videogame database application with a creative design and a good user experience. 
+   Player One features multiple dynamic pages, as well as a well designed, eye-grabbing static landing page. 
+   There are over 600,000 games available to search from utilizing the RAWG API with Axios to dynamically layout the information and games in a very appealing to the user.
     <br />
     <a href="https://github.com/dayZgarden/dayZgamer"><strong>Explore the docs »</strong></a>
     <br />
@@ -105,7 +105,6 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 * [![linkedin][linkedin]][linkedin-url]
-* [![twitter][twitter]][twitter-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
