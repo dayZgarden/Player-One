@@ -20,7 +20,7 @@ export default function Feed({ game, wishlist, addToWishlist }) {
         </p>
       </motion.div>
       <Chimp />
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap pr-12 justify-start">
         {game.slice(0, 18).map((result) => (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -31,7 +31,7 @@ export default function Feed({ game, wishlist, addToWishlist }) {
               scale: 0.5,
               transition: { duration: 0.7 },
             }}
-            className="lg:w-[30%] sm:w-[50%] w-[95%] mx-auto hover:scale-[103%] transition-all  duration-[.65s] bg-[#282838] odd:border-b-[#fc61ff] border-4 border-[#20202e] even:border-b-[#61ffda] sm:m-1 md:m-2 xl:m-4"
+            className=" mx-auto hover:scale-[103%] lg:w-[25%] md:w-[30%] sm:w-[50%] w-[95%]  flex transition-all  duration-[.65s]"
           >
             <GameForGenre
               result={result}

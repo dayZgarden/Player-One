@@ -32,9 +32,9 @@ export default function WishList({
 
   return (
     <motion.div className="h-screen flex flex-col"
-    initial={{opacity: 0,  scale: .5}}
-    animate={{opacity: 1,  scale: 1, transition: {duration: 0.7} }}
-    exit={{opacity: 0, rotate: 0, scale: .5, transition: {duration: 0.7}}}>
+    initial={{opacity: 0}}
+    animate={{opacity: 1, transition: {duration: 0.7} }}
+    exit={{opacity: 0, transition: {duration: 0.7}}}>
       <Nav />
       <Sidebar />
       <div className="flex mt-8 justify-center ">

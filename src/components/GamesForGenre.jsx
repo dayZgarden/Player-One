@@ -87,7 +87,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
   
 
   return (
-    <div className="scrollbar-hide hover:z-[100] group relative w-full h-full flex  scroll-smooth">
+    <div className="scrollbar-hide  bg-[#282838] border-b-4 scale-[90%] group relative w-full h-full flex  scroll-smooth">
       <div
         className="h-[100%] flex w-full">
         <div
@@ -116,7 +116,7 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
           >
             <button className="w-full z-[1] flex flex-col items-center h-full justify-evenly space-y-4 group">
               <h1
-                className=" text-[24px] bg-gradient-to-t from-[#1c1c28] to-gray-900 font-bold text-white rotate-[-2deg]  w-[97%] text-center break-words  p-2 "
+                className=" text-[24px] bg-gradient-to-t from-[#1c1c28] to-gray-900 font-bold text-white -[-2deg]  w-[97%] text-center break-words  p-2 "
               >
                 {result?.name} 
               </h1>
@@ -126,17 +126,17 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
                   <img
                     src={result.background_image}
                     alt=""
-                    className="border-4 rotate-[-2deg] mt-2 aspect-square w-full h-full border-black shadow-cool2 group-hover:hidden  object-cover "
+                    className="border-4 scale-[90%] -[-2deg] mt-2 aspect-square w-full h-full border-black shadow-cool2 group-hover:hidden  object-cover "
                   />
                   <video
                     ref={videoRef}
-                    className="hidden border-4 rotate-[-2deg] mt-2 aspect-square w-full h-full border-black shadow-cool2 group-hover:inline object-cover "
+                    className="hidden scale-[90%] border-4 -[-2deg] mt-2 aspect-square w-full h-full border-black shadow-cool2 group-hover:inline object-cover "
                     controls="fullscreen; gyroscope"
                     src={trailer}
                   >
                     {" "}
                   </video>
-                  <span className="absolute bottom-4 group-hover:hidden right-4 opacity-70">
+                  <span className="absolute bottom-8 group-hover:hidden right-8 opacity-70">
                     <FaPlayCircle className="w-12 text-white bg-black rounded-full h-12" />
                   </span>
                 </div>
@@ -144,14 +144,14 @@ export default function GameForGenre({ result, addToWishlist, wishlist }) {
                 <figure className="max-h-full md:h-[50%] h-full lg:h-[33.333%]">
 
                 <img
-                  className=" rotate-[-2deg] mt-2 aspect-square w-full h-full flex object-cover border-4 border-black shadow-cool2"
+                  className=" -[-2deg] scale-[90%] mt-2 aspect-square w-full h-full flex object-cover border-4 border-black shadow-cool2"
                   src={result?.background_image}
                 />
                 </figure>
 
               )}
               <div className="flex z-[50] w-[100%]  flex-col px-2 text-[16px]  font-bold text-white">
-                <div className="py-2 bg-gradient-to-t from-[#1c1c28] to-gray-900 rotate-[-2deg] text-center tracking-wide w-[60%] mx-auto text-[18px] flex justify-center space-x-2">
+                <div className="py-2 bg-gradient-to-t from-[#1c1c28] to-gray-900 -[-2deg] text-center tracking-wide w-[60%] mx-auto text-[18px] flex justify-center space-x-2">
                   <p className="">
                     {result?.added}
                     {

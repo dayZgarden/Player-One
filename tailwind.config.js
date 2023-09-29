@@ -36,6 +36,7 @@ module.exports = {
       backgroundImage: {
         'space2': 'url(./assets/space2.jpg)',
         'trident': 'url(./assets/trident.png)',
+        'pos' : 'url(./assets/pos.jpg)',
       },
       boxShadow: {
         'cool': '5px 7px 0px 0px rgb(17 24 49)',
@@ -78,12 +79,56 @@ module.exports = {
           '100%' : {
             border: '2px solid #7b61ff'
           },
-        }
+        },
+        topToBottom: {
+          '0%' : {
+            transform: 'translateY(-100%)'
+          },
+          '100%' : {
+            transform: 'translateY(0%)'
+        },
+        },
+        bottomToTop: {
+          '0%' : {
+            transform: 'translateY(100%)'
+          },
+          '100%' : {
+            transform: 'translateY(0%)'
+          },
       },
+      leftToRight: {
+        '0%' : {
+          transform: 'translateX(-120%)'
+        },
+        '70%' : {
+          transform: 'translateX(5%)'
+        },
+        '100%' : {
+          transform: 'translateX(0%)'
+        },
+
+      },
+      rightToLeft: {
+        '0%' : {
+          transform: 'translateX(120%)'
+        },
+        '70%' : {
+          transform: 'translateX(-5%)'
+        },
+        '100%' : {
+          transform: 'translateX(0%)'
+        },
+
+      },
+    },
       animation: {
         fadeAnim: 'fadeAnim 1s ease-out',
         blob: 'blob 7s infinite',
         zipper: 'zipper 2.5s infinite linear',
+        topToBottom: 'topToBottom .7s ease-in ',
+        bottomToTop: 'bottomToTop .7s ease-in ',
+        leftToRight: 'leftToRight 1.5s ease-in-out ',
+        rightToLeft: 'rightToLeft 1.5s ease-in-out ',
       },
       variants: {
         scrollbar: ['dark']

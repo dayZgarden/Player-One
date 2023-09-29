@@ -42,13 +42,13 @@ export default function nav() {
           <h1 className="font-bold text-4xl uppercase fixed ">PLAYER ONE</h1>
         </div>
         <div className=" rounded-md p-1 pt-4  flex flex-grow justify-evenly max-w-2xl">
-          <button className="border-b-2 border-[#fc61ff]" onClick={() => navigate('/games')}>
+          <button className=" " onClick={() => navigate('/games')}>
             <NavItem  Icon={HomeIcon} title="Home" />
           </button>
-          <button  className="border-b-2 border-[#7b61ff]" onClick={refresh}>
+          <button  className=" " onClick={refresh}>
             <NavItem Icon={RefreshIcon} title={'Refresh'}/>
           </button>
-          <button className="border-b-2 border-[#61ffda]" onClick={loadBar}>
+          <button className=" " onClick={loadBar}>
             {
               !bar && <div> <NavItem Icon={SearchIcon} title="Search" /> </div>
             }
@@ -59,10 +59,10 @@ export default function nav() {
           {
             bar && <SearchBar />
           }
-          <div className="border-b-2 border-[#fc61ff]">
+          <div className=" ">
            <NavItem Icon={UserIcon} title='Login'/>
           </div>
-          <button className="border-b-2 border-[#7b61ff]" onClick={() => navigate('/wishlist')}>
+          <button className="" onClick={() => navigate('/wishlist')}>
               <NavItem Icon={StarIcon} title="Wishlist" />
           </button>
         </div>
